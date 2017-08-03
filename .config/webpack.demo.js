@@ -23,7 +23,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.webpack.js', '.web.js', '.js'],
     alias: {
-      'angular-formly-templates-rhases':  path.join(__dirname, '..', 'src'),
+      'angular-formly-templates-rhases':  path.join(__dirname, '..', 'lib'),
     },
   },
   module: {
@@ -31,7 +31,7 @@ module.exports = {
       { test: /\.ts$/, use: ['awesome-typescript-loader?declaration=false'] },
       { test: /\.pug$/, use: ['raw-loader','pug-html-loader'] },
       { test: /\.html$/, use: ['raw-loader'] },
-      { test: /\.scss$/, use: ['raw-loader'] }
+      { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"] }
     ]
   },
   plugins: [

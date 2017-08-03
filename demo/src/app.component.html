@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row col-lg-12">
+      <things flow="$ctrl.flow" things="$ctrl.things"  model="$ctrl.model"> </things>
+      <formly-form model="$ctrl.user" fields="$ctrl.userFields">
+        <button type="submit" class="btn btn-default" ng-click="$ctrl.submit(user)">Submit</button>
+    </div>
+    <code> {{ $ctrl.user }} </code>
+    <code> {{ $ctrl.userFields }} </code>
+</div>
