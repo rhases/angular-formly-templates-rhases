@@ -2,7 +2,7 @@ const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenat
 const path = require('path');
 
 module.exports = {
-  entry: './lib/index.ts',
+  entry: './src/index.ts',
   devtool: 'source-map',
   output: {
     path: __dirname + '/../dist',
@@ -11,6 +11,8 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   externals: [
+    /^\@angular\//,
+    /^rxjs\//
   ],
   resolve: {
     extensions: ['.ts', '.js'],
@@ -20,12 +22,12 @@ module.exports = {
       {
         test: /\.ts$/,
         use: [
+          'ng-annotate-loader',
           'awesome-typescript-loader?declaration=true'
           ],
       },
       {
-        test: /\.html$/,
-        use: ['raw-loader']
+        test: /\.html$/, use: ['raw-loader']
       },
       { test: /\.pug$/, use: ['raw-loader','pug-html-loader'] },
       {

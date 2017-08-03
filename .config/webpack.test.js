@@ -11,7 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        include: path.resolve('lib'),
+        include: path.resolve('src'),
         use: ['istanbul-instrumenter-loader'],
         exclude: [/\.spec\.ts$/, /node_modules/]
       },

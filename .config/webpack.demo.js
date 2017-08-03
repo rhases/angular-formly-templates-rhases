@@ -23,7 +23,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.webpack.js', '.web.js', '.js'],
     alias: {
-      'angular-formly-templates-rhases':  path.join(__dirname, '..', 'lib'),
+      'angular-formly-templates-rhases':  path.join(__dirname, '..', 'src'),
     },
   },
   module: {

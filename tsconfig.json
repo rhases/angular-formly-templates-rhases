@@ -17,10 +17,10 @@
     "types" : ["node", "jasmine"]
   },
   "files": [
-    "lib/index.ts"
+    "src/index.ts"
   ],
   "include": [
-    "lib/**/*",
+    "src/**/*",
     "spec/**/*"
   ],
   "compileOnSave": false
