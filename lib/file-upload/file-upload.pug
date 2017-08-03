@@ -1,0 +1,5 @@
+.form-group.has-feedback
+  input.form-control(ga-event-action ng-enabled="!uploadCompleted" upload="upload(file)" type="file" name="file" file)
+  spam.form-control-feedback
+    i.fa.fa-spinner.fa-spin(ng-show="isLoading")
+    i.fa.fa-check.success(ng-show="!isLoading && uploadCompleted")

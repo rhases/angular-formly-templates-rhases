@@ -1,0 +1,4 @@
+.big-buttons
+  button.btn.btn-lg(id="{{id + '_'+ $index}}" ng-repeat="(key, option) in to.options" ng-click="set(option[to.valueProp || 'value'])" ng-class="{ 'btn-secondary': model[options.key] == option[to.valueProp || 'value'], 'btn-default': model[options.key] != option[to.valueProp || 'value'] }")
+    img.img-responsive(ng-src="{{ option.image }}" ng-if="option.image")
+    | {{option[to.labelProp || 'name']}}
