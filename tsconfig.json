@@ -2,22 +2,26 @@
   "compilerOptions": {
     "lib": ["es6", "dom"],
     "module": "commonjs",
-    "target": "es6",
+    "target": "es5",
     "noImplicitAny": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "noUnusedLocals": false,
     "sourceMap": true,
     "declaration": true,
-    "rootDir": ".",
+    "baseUrl": "lib",
     "outDir": "dist",
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
     "experimentalDecorators": true,
     "types" : ["node", "jasmine"]
   },
+  "files": [
+    "lib/index.ts"
+  ],
   "include": [
     "lib/**/*",
     "spec/**/*"
-  ]
+  ],
+  "compileOnSave": false
 }

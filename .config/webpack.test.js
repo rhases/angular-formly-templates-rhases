@@ -11,7 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        include: path.resolve('src'),
+        include: path.resolve('lib'),
         use: ['istanbul-instrumenter-loader'],
         exclude: [/\.spec\.ts$/, /node_modules/]
       },
@@ -20,7 +20,7 @@ module.exports = {
         use: ['awesome-typescript-loader?inlineSourceMap=true&sourceMap=false&declaration=false'],
         exclude: [/node_modules/]
       },
-      { test: /\.html$/, use: ['raw-loader'] },
+      { test: /\.pug$/, use: ['raw-loader'] },
       { test: /\.scss$/, use: ['raw-loader'] }
     ]
   },
