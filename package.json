@@ -26,8 +26,22 @@
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "gulp test",
-    "release": "standard-version"
+    "release": "standard-version",
+    "contrib:add": "all-contributors add",
+    "contrib:generate": "all-contributors generate",
+    "ngc": "./node_modules/.bin/ngc",
+    "lint": "./node_modules/.bin/tslint 'src/**/*.ts' 'demo/**/*.ts'",
+    "commit": "npm run build && git-cz",
+    "prepublish": "npm run build",
+    "build": "npm run build:lib && npm run build:bundles:compile",
+    "prebuild:lib": "shx rm -rf ./lib",
+    "build:lib": "npm run ngc -- --project tsconfig.build.json",
+    "prebuild:bundles": "shx rm -rf ./dist",
+    "build:bundles:compile": "./node_modules/.bin/webpack --config .config/webpack.build.js",
+    "minify": "npm run build && uglifyjs dist/index.js --output dist/index.min.js --in-source-map dist/index.js.map --source-map dist/index.min.js.map",
+    "demo": "node_modules/.bin/webpack-dashboard --title angular-otpp-demo -- node_modules/.bin/webpack-dev-server --quiet --port 9000 --content-base demo --config .config/webpack.demo.js --open",
+    "test": "./node_modules/.bin/karma start",
+    "test-watch": "./node_modules/.bin/karma start --no-single-run --auto-watch"
   },
   "config": {
     "ghooks": {
@@ -39,13 +53,13 @@
   },
   "description": "AngularJS directive which takes JSON representing a form and renders to HTML",
   "peerDependencies": {
-    "angular": "^1.2.x || >= 1.4.0-beta.0 || >= 1.5.0-beta.0"
+    "angular": "^1.2.x || >= 1.4.0-beta.0 || >= 1.5.0-beta.0",
+    "angular-formly": "^8.4.1",
+    "api-check": "^7.0.0",
+    "lodash": "^4.17.4"
   },
   "dependencies": {
-    "@types/angular": "^1.6.28",
-    "angular-formly": "^8.4.1",
-    "angular-formly-templates-bootstrap": "^6.5.1",
-    "api-check": "^7.0.0"
+    "@types/angular": "^1.6.28"
   },
   "devDependencies": {
     "@angular/common": "^2.4.10",
@@ -59,6 +73,9 @@
     "@types/node": "^7.0.22",
     "angular": "^1.6.0",
     "angular-mocks": "^1.6.0",
+    "angular-formly": "^8.4.1",
+    "angular-formly-templates-bootstrap": "^6.5.1",
+    "api-check": "^7.0.0",
     "angular-ui-bootstrap": "^2.0.1",
     "angular-ui-router": "~0.3.1",
     "awesome-typescript-loader": "^3.1.3",
@@ -102,7 +119,10 @@
   },
   "jspm": {
     "peerDependencies": {
-      "angular": "*"
+      "angular": "*",
+      "angular-formly": "*",
+      "api-check": "*",
+      "lodash": "*"
     }
   },
   "release": {
