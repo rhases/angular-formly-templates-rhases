@@ -67,8 +67,6 @@ export class AgeInputsController {
       if (!type.max) return true;
       return type.max > (times[type.id] || 0);
     })
-
-    console.log(this.$scope.remainingTypes)
   }
 }
 
