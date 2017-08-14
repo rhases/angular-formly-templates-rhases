@@ -1,0 +1,20 @@
+.holder-inputs.text-center
+  .age-group-box(ng-repeat="groupType in opts")
+    br
+    h4 
+      strong {{ groupType.groupLabel }}
+    .form-horizontal
+      .row(ng-repeat="holder in model[options.key][groupType.id]")
+        .form-group.holder-box
+          .col-sm-12
+            label.control-label 
+              strong \#{{ $index + 1 }}&nbsp&nbsp-&nbsp&nbsp
+              | {{ groupType.label }}
+          .col-sm-12
+            age-inputs(model="holder.dependents" ages-options-to-include="groupType.dependents" on-change="to.onChange()")
+
+    button.btn.btn-link(ng-click="add(groupType.id)")
+      i.fa.fa-plus-circle
+      | &nbsp;Adicionar {{ groupType.label }}
+      
+    br

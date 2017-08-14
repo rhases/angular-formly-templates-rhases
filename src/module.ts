@@ -10,8 +10,10 @@ import {bigButtonsConfig} from './big-buttons/big-buttons.config';
 import {ageInputsConfig} from './age-inputs/age-inputs.config';
 import {fileUploadConfig} from './file-upload/file-upload.config';
 import {currencyConfig} from './currency/currency.config';
+import {groupedAgeInputsConfig} from './grouped-age-inputs/grouped-age-inputs.config';
 
 import {s3FileUploadDirective} from './file-upload/s3-file-upload-directive.directive';
+import ageInputsDirective from './age-inputs/age-inputs.directive';
 
 import './scss/angular-formly-templates-rhases.scss';
 
@@ -24,5 +26,7 @@ export default angular.module(ngModuleName, [
 .config(ageInputsConfig)
 .config(fileUploadConfig)
 .config(currencyConfig)
+.config(groupedAgeInputsConfig)
 .directive('s3FileUpload', s3FileUploadDirective)
+.directive('ageInputs', ageInputsDirective)
 .name;

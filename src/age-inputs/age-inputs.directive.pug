@@ -1,20 +1,16 @@
 .age-inputs.text-center
   .form-horizontal
-    .row(ng-repeat="age in model[options.key]")
+    .row(ng-repeat="age in model")
       .form-group.age-box
         .col-sm-6.text-right
           label.control-label {{ config[age.type].label }}
         .col-sm-6.text-left
-          input.form-control.inline-block(type="number" min="1" max="99" ng-model="age.value")
-          | &nbsp;
+          input.form-control.inline-block(type="number" min="1" max="99" ng-model="age.value" style="width: initial; display: inline-block")
           a.btn.btn-link.btn-sm(ng-click="remove($index)" ng-hide="config[age.type].notRemove")
             i.fa.fa-close
 
-  br
-
-  // Single button
   uib-dropdown.btn-group
-    button#single-button.btn.btn-default(uib-dropdown-toggle)
+    button#single-button.btn.btn-default.btn-sm(uib-dropdown-toggle ng-disabled="remainingTypes.length == 0")
       i.fa.fa-plus-circle
       | &nbsp;Adicionar&nbsp;&nbsp;&nbsp;&nbsp;
       span.caret

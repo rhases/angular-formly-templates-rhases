@@ -1,6 +1,8 @@
 <div class="container">
+  <br>
+  <br>
   <div class="row col-lg-12">
-    <form name="form">
+    <form name="form" novalidate>
       <things flow="$ctrl.flow" things="$ctrl.things" model="$ctrl.model"> </things>
       <formly-form model="$ctrl.user" fields="$ctrl.userFields">
       <button type="submit" class="btn btn-primary" ng-click="$ctrl.submit(user)" ng-disabled="form.$invalid || form.$pending">Submit</button>
@@ -11,5 +13,8 @@
 
   <br>
 
-  <pre>{{ form | json }}</pre>
+  <div class="row col-lg-12">
+    <pre>{{ form | json }}</pre>
+    <code>{{ $ctrl.user | json }}</code>
+  </div>
 </div>

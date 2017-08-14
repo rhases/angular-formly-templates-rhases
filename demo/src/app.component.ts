@@ -28,81 +28,109 @@ export class MainController {
       // },
       //
       //
-      // // Family Ages
-      // {
-      //   key: 'ages',
-      //   type: 'age-inputs',
-      //   templateOptions: {
-      //     label: "Idades da família:",
-      //     options: [
-      //       {
-      //         id: 'himself',
-      //         label: 'Você',
-      //         max: 1,
-      //         default: true,
-      //         notRemove: true
-      //       },
-      //       {
-      //         id: 'partner',
-      //         label: 'Conjugê',
-      //         max: 1,
-      //         default: true
-      //       },
-      //       {
-      //         id: 'son',
-      //         label: 'Filho',
-      //         max: 10,
-      //       },
-      //       {
-      //         id: 'father',
-      //         label: 'Pai',
-      //         max: 1,
-      //       },
-      //       {
-      //         id: 'mother',
-      //         label: 'Mãe',
-      //         max: 1,
-      //       },
-      //       {
-      //         id: 'brotherinlaw',
-      //         label: 'Cunhado',
-      //         max: 10,
-      //       }
-      //     ]
-      //   }
-      // },
-      //
-      // // Business Ages
-      // {
-      //   key: 'business-ages',
-      //   type: 'age-inputs',
-      //   templateOptions: {
-      //     label: "Idades dos funcionarios:",
-      //     options: [
-      //       {
-      //         id: 'employee',
-      //         label: 'Funcionário {{$index+1}}',
-      //         max: 99,
-      //         default: true,
-      //         children: [
-      //           {
-      //             id: 'partner',
-      //             label: 'Conjugê',
-      //             max: 1,
-      //             default: true
-      //           },
-      //           {
-      //             id: 'son',
-      //             label: 'Filho',
-      //             max: 10,
-      //           },
-      //         ]
-      //       },
-      //
-      //     ]
-      //   }
-      // },
-      //
+      // Family Ages
+      {
+        key: 'ages',
+        type: 'age-inputs',
+        templateOptions: {
+          label: "Idades da família:",
+          options: [
+            {
+              id: 'himself',
+              label: 'Você',
+              max: 1,
+              default: true,
+              notRemove: true
+            },
+            {
+              id: 'partner',
+              label: 'Conjugê',
+              max: 1,
+              default: true
+            },
+            {
+              id: 'son',
+              label: 'Filho',
+              max: 10,
+            },
+            {
+              id: 'father',
+              label: 'Pai',
+              max: 1,
+            },
+            {
+              id: 'mother',
+              label: 'Mãe',
+              max: 1,
+            },
+            {
+              id: 'brotherinlaw',
+              label: 'Cunhado',
+              max: 10,
+            }
+          ]
+        }
+      },
+
+      // Business Ages
+      {
+        key: 'businessAges',
+        type: 'grouped-age-inputs',
+        templateOptions: {
+          label: "Idades dos participantes do plano:",
+          options: [
+            {
+              id: 'employee',
+              label: 'Funcionário',
+              groupLabel: 'Funcionários',
+              max: 99,
+              default: true,
+              dependents: [
+                {
+                  id: 'himself',
+                  label: 'Dele', //  {{$index+1}}
+                  max: 1,
+                  default: true,
+                  notRemove: true
+                },
+                {
+                  id: 'partner',
+                  label: 'Conjugê',
+                  max: 1
+                }
+              ]
+            },
+            {
+              id: 'partner',
+              label: 'Sócio',
+              groupLabel: 'Sócios',
+              max: 99,
+              dependents: [
+                {
+                  id: 'himself',
+                  label: 'Dele', //  {{$index+1}}
+                  max: 1,
+                  default: true,
+                  notRemove: true
+                },
+                {
+                  id: 'partner',
+                  label: 'Conjugê',
+                  max: 1,
+                  default: true
+                },
+                {
+                  id: 'son',
+                  label: 'Filho',
+                  max: 10,
+                },
+              ]
+            },
+
+          ]
+        }
+      },
+
       // {
       //   key: 'who',
       //   type: 'multiCheckbox',

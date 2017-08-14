@@ -7,45 +7,18 @@ export function ageInputsConfig(formlyConfigProvider) {
 
   formlyConfigProvider.setType({
     name: 'age-inputs',
-    // template: require('./age-inputs.pug'),
-    template: '<age-inputs></age-inputs>',
+    template: '<code>{{ model[options.key] }}</code><age-inputs model="model[options.key]" ages-options-to-include="opts" on-change="to.onChange()"></age-inputs>',
     wrapper: ['bootstrapLabel', 'bootstrapHasError'],
-    // controller: /* @ngInject */ function($scope) {
-    //   const to = $scope.to;
-    //   const opts = $scope.options;
-    //
-    //   // Initial set
-    //   if (!$scope.model[opts.key]) {
-    //     $scope.model[opts.key] = _.filter(TYPES, { default: true })
-    //       .map(function(_type) {
-    //         return { type: _type.id, value: undefined };
-    //       });
-    //   }
-    //
-    //
-    //   // load all labels
-    //   const config = TYPES.reduce(
-    //     function(final, current) {
-    //       final[current.id] = current;
-    //       return final;
-    //     }, {});
-    //   $scope.config = config;
-    //
-    //   $scope.remainingTypes = TYPES;
-    //   function calculateRemainingTimes() {
-    //     var times = _.countBy($scope.model[opts.key], 'type');
-    //
-    //     $scope.remainingTypes = TYPES.filter(function(type) {
-    //       if (!type.max) return true;
-    //       return type.max > (times[type.id] || 0);
-    //     })
-    //
-    //     console.log($scope.remainingTypes)
-    //   }
-    //   calculateRemainingTimes();
-    //
-    //
-    // }
+    controller: /* @ngInject */ function($scope) {
+
+      $scope.opts = $scope.to.options
+
+      // Initial set
+      if (!$scope.model[$scope.options.key]) {
+        $scope.model[$scope.options.key] = [];
+      }
+
+    }
   });
 
 }
