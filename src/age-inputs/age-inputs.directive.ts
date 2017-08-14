@@ -34,7 +34,6 @@ export default function() {
       calculateRemainingTimes();
 
       $scope.add = function(typeId) {
-        console.log('add', typeId)
         $scope.model.push({ type: typeId, value: undefined })
         calculateRemainingTimes();
 

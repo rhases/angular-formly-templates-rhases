@@ -29,8 +29,8 @@ export function groupedAgeInputsConfig(formlyConfigProvider) {
         }
       }
 
-      $scope.remove = function (groupId) {
-        delete $scope.model[$scope.options.key][groupId];
+      $scope.remove = function (groupId, index) {
+        $scope.model[$scope.options.key][groupId].splice(index, 1)
 
         if ($scope.to.onChange) {
           $scope.to.onChange();
