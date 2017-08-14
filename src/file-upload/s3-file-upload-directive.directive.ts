@@ -61,7 +61,7 @@ export function s3FileUploadDirective($http, $q) {
       function signRequest(file) {
         return $http.post($scope.s3SignRequestUri, {
           filename: $scope.s3FileNamePrefix + file.name,
-          type: file.type,
+          type: fileType(file),
           bucket: $scope.s3Bucket
         })
       }
@@ -70,12 +70,16 @@ export function s3FileUploadDirective($http, $q) {
         return function(result) {
           var preSignedResp = result.data.signedRequest;
           // Perform The Push To S3
-          return $http.put(preSignedResp, file, { headers: { 'Content-Type': file.type } })
+          return $http.put(preSignedResp, file, { headers: { 'Content-Type': fileType(file) } })
             .then(function(resp) {
               $scope.s3UploadStatus = 'success';
               return result.data.url;
             })
         }
+      }
+
+      function fileType(file) {
+        return file.type || 'application/octet-stream';
       }
     }
   };
