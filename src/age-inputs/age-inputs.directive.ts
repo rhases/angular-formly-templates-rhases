@@ -1,7 +1,7 @@
 const angular = require('angular');
 const _ = require('lodash');
 
-export default function() {
+export default function ageInputsDirective() {
   return {
     template: require('./age-inputs.directive.pug'),
     scope: {
