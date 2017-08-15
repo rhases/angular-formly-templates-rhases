@@ -29,105 +29,118 @@ export class MainController {
       //
       //
       // Family Ages
-      {
-        key: 'ages',
-        type: 'age-inputs',
-        templateOptions: {
-          label: "Idades da família:",
-          options: [
-            {
-              id: 'himself',
-              label: 'Você',
-              max: 1,
-              default: true,
-              notRemove: true
-            },
-            {
-              id: 'partner',
-              label: 'Conjugê',
-              max: 1,
-              default: true
-            },
-            {
-              id: 'son',
-              label: 'Filho',
-              max: 10,
-            },
-            {
-              id: 'father',
-              label: 'Pai',
-              max: 1,
-            },
-            {
-              id: 'mother',
-              label: 'Mãe',
-              max: 1,
-            },
-            {
-              id: 'brotherinlaw',
-              label: 'Cunhado',
-              max: 10,
-            }
-          ]
-        }
-      },
+      // {
+      //   key: 'ages',
+      //   type: 'age-inputs',
+      //   templateOptions: {
+      //     label: "Idades da família:",
+      //     options: [
+      //       {
+      //         id: 'himself',
+      //         label: 'Você',
+      //         max: 1,
+      //         default: true,
+      //         notRemove: true
+      //       },
+      //       {
+      //         id: 'partner',
+      //         label: 'Conjugê',
+      //         max: 1,
+      //         default: true
+      //       },
+      //       {
+      //         id: 'son',
+      //         label: 'Filho',
+      //         max: 10,
+      //       },
+      //       {
+      //         id: 'father',
+      //         label: 'Pai',
+      //         max: 1,
+      //       },
+      //       {
+      //         id: 'mother',
+      //         label: 'Mãe',
+      //         max: 1,
+      //       },
+      //       {
+      //         id: 'brotherinlaw',
+      //         label: 'Cunhado',
+      //         max: 10,
+      //       }
+      //     ]
+      //   }
+      // },
+
+      // Business Ages
+      // {
+      //   key: 'businessAges2',
+      //   type: 'grouped-age-inputs',
+      //   templateOptions: {
+      //     label: "Idades dos participantes do plano:",
+      //     options: [
+      //       {
+      //         id: 'employee',
+      //         label: 'Funcionário',
+      //         groupLabel: 'Funcionários',
+      //         max: 99,
+      //         default: true,
+      //         dependents: [
+      //           {
+      //             id: 'partner',
+      //             label: 'Conjugê',
+      //             max: 1
+      //           }
+      //         ]
+      //       },
+      //       {
+      //         id: 'partner',
+      //         label: 'Sócio',
+      //         groupLabel: 'Sócios',
+      //         max: 99,
+      //         dependents: [
+      //           {
+      //             id: 'partner',
+      //             label: 'Conjugê',
+      //             max: 1,
+      //             default: true
+      //           },
+      //           {
+      //             id: 'son',
+      //             label: 'Filho',
+      //             max: 10,
+      //           },
+      //         ]
+      //       },
+      //
+      //     ]
+      //   }
+      // },
 
       // Business Ages
       {
         key: 'businessAges',
-        type: 'grouped-age-inputs',
+        type: 'holder-age-inputs',
         templateOptions: {
           label: "Idades dos participantes do plano:",
-          options: [
-            {
-              id: 'employee',
-              label: 'Funcionário',
-              groupLabel: 'Funcionários',
-              max: 99,
-              default: true,
-              dependents: [
-                {
-                  id: 'himself',
-                  label: 'Dele', //  {{$index+1}}
-                  max: 1,
-                  default: true,
-                  notRemove: true
-                },
-                {
-                  id: 'partner',
-                  label: 'Conjugê',
-                  max: 1
-                }
-              ]
-            },
-            {
-              id: 'partner',
-              label: 'Sócio',
-              groupLabel: 'Sócios',
-              max: 99,
-              dependents: [
-                {
-                  id: 'himself',
-                  label: 'Dele', //  {{$index+1}}
-                  max: 1,
-                  default: true,
-                  notRemove: true
-                },
-                {
-                  id: 'partner',
-                  label: 'Conjugê',
-                  max: 1,
-                  default: true
-                },
-                {
-                  id: 'son',
-                  label: 'Filho',
-                  max: 10,
-                },
-              ]
-            },
-
-          ]
+          options: {
+            id: 'employee',
+            label: 'Funcionário',
+            min: 1,
+            max: 99,
+            dependents: [
+              {
+                id: 'partner',
+                label: 'Conjugê',
+                max: 1
+              },
+              {
+                id: 'son',
+                label: 'Filho',
+                max: 10,
+              }
+            ]
+          }
         }
       },
 
@@ -188,15 +201,15 @@ export class MainController {
       //   }
       // },
 
-      {
-        key: 'email',
-        type: 'input',
-        templateOptions: {
-          type: 'email',
-          label: 'Email address',
-          placeholder: 'Enter email'
-        }
-      },
+      // {
+      //   key: 'email',
+      //   type: 'input',
+      //   templateOptions: {
+      //     type: 'email',
+      //     label: 'Email address',
+      //     placeholder: 'Enter email'
+      //   }
+      // },
       // {
       //   key: 'checked',
       //   type: 'checkbox',
@@ -204,23 +217,23 @@ export class MainController {
       //     label: 'Check me out'
       //   }
       // },
-      {
-        key: 'policy-file',
-        type: 'file-upload',
-        templateOptions: {
-          label: 'Apólice',
-          bucket: 'rhases-users',
-          fileNamePrefix: 'apolice/',
-          required: true,
-          signRequestUri: 'http://hi-seller-ws-homolog.herokuapp.com' +
-          '/api/s3-upload/preSignedUrlForUserHome'
-        },
-        validation: {
-          messages: {
-            required: '"campo " + to.label + " é obrigatório "'
-          }
-        }
-      },
+      // {
+      //   key: 'policy-file',
+      //   type: 'file-upload',
+      //   templateOptions: {
+      //     label: 'Apólice',
+      //     bucket: 'rhases-users',
+      //     fileNamePrefix: 'apolice/',
+      //     required: true,
+      //     signRequestUri: 'http://hi-seller-ws-homolog.herokuapp.com' +
+      //     '/api/s3-upload/preSignedUrlForUserHome'
+      //   },
+      //   validation: {
+      //     messages: {
+      //       required: '"campo " + to.label + " é obrigatório "'
+      //     }
+      //   }
+      // },
     ];
 
   /*@ngInject*/
