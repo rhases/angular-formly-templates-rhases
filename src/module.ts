@@ -6,8 +6,9 @@ const uiBootstrap = require('angular-ui-bootstrap');
 
 const ngModuleName = 'angular-formly-templates-rhases'
 
-import {bigButtonsConfig} from './big-buttons/big-buttons.config';
 import {ageInputsConfig} from './age-inputs/age-inputs.config';
+import {bigButtonsConfig} from './big-buttons/big-buttons.config';
+import {brazilianCitiesConfig} from './brazilian-cities/brazilian-cities.config';
 import {fileUploadConfig} from './file-upload/file-upload.config';
 
 import './scss/angular-formly-templates-rhases.scss';
@@ -17,7 +18,8 @@ export default angular.module(ngModuleName, [
   formlyBootstrapTemplates,
   uiBootstrap
 ])
-.config(bigButtonsConfig)
 .config(ageInputsConfig)
+.config(bigButtonsConfig)
+.config(brazilianCitiesConfig)
 .config(fileUploadConfig)
 .name;

@@ -12,7 +12,10 @@ export class MainController {
       // TODO: Contatos                                   3 x [input]
       // TODO: Como prefere ser contactado                [radio] list
       // TODO: Quanto está disposto a investir            [input money] list
-
+      {
+        key: 'location',
+        type: 'brazilian-cities'
+      },
       {
         key: 'to',
         type: 'big-buttons',
