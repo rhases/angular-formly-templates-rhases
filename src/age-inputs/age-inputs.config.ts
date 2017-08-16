@@ -7,9 +7,18 @@ export function ageInputsConfig(formlyConfigProvider) {
 
   formlyConfigProvider.setType({
     name: 'age-inputs',
-    // template: require('./age-inputs.pug'),
-    template: '<age-inputs></age-inputs>',
-    wrapper: ['bootstrapLabel', 'bootstrapHasError']
+    template: '<age-inputs model="model[options.key]" ages-options-to-include="opts" on-change="to.onChange()"></age-inputs>',
+    wrapper: ['bootstrapLabel', 'bootstrapHasError'],
+    controller: /* @ngInject */ function($scope) {
+
+      $scope.opts = $scope.to.options
+
+      // Initial set
+      if (!$scope.model[$scope.options.key]) {
+        $scope.model[$scope.options.key] = [];
+      }
+
+    }
   });
 
 }
