@@ -8,8 +8,6 @@ import formlyRhasesTemplates from 'angular-formly-templates-rhases';
 
 import { MainController } from './app.component';
 
-console.log('Hello World!')
-
 var app = angular.module('demoApp', [
   formlyRhasesTemplates,
   uiRouter,

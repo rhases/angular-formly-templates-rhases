@@ -12,22 +12,25 @@ export class MainController {
       // TODO: Contatos                                   3 x [input]
       // TODO: Como prefere ser contactado                [radio] list
       // TODO: Quanto está disposto a investir            [input money] list
+      {
+        key: 'location',
+        type: 'brazilian-cities'
+      },
+      {
+        key: 'to',
+        type: 'big-buttons',
+        templateOptions: {
+          label: 'O plano é para:',
+          options: [
+            { name: 'Você', value: 'you', image: '/assets/images/health-insurance-form/voce.png' },
+            { name: 'Você e sua família', value: 'family', image: '/assets/images/health-insurance-form/familia.png' },
+            { name: 'Empresa', value: 'business', image: '/assets/images/health-insurance-form/empresa.png' },
+            { name: 'Outra pessoa', value: 'another', image: '/assets/images/health-insurance-form/outro.png' },
+          ]
+        }
+      },
 
-      // {
-      //   key: 'to',
-      //   type: 'big-buttons',
-      //   templateOptions: {
-      //     label: 'O plano é para:',
-      //     options: [
-      //       { name: 'Você', value: 'you', image: '/assets/images/health-insurance-form/voce.png' },
-      //       { name: 'Você e sua família', value: 'family', image: '/assets/images/health-insurance-form/familia.png' },
-      //       { name: 'Empresa', value: 'business', image: '/assets/images/health-insurance-form/empresa.png' },
-      //       { name: 'Outra pessoa', value: 'another', image: '/assets/images/health-insurance-form/outro.png' },
-      //     ]
-      //   }
-      // },
-      //
-      //
+
       // Family Ages
       // {
       //   key: 'ages',
