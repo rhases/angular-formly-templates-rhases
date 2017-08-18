@@ -1,6 +1,6 @@
 {
   "name": "angular-formly-templates-rhases",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "author": "Gabriel S. Rodrigues <gabrielsr@gmail.com>",
   "contributors": [
     "Gabriel S. Rodrigues <gabrielsr@gmail.com>",
@@ -63,7 +63,7 @@
     "angular-formly": "^8.4.1",
     "angular-formly-templates-bootstrap": "^6.5.1",
     "api-check": "^7.0.0",
-    "brazilian-cities": "^2.0.3"
+    "brazilian-cities": "^2.0.4"
   },
   "devDependencies": {
     "@angular/common": "^2.4.10",
