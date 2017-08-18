@@ -13,7 +13,7 @@
             a.btn.btn-link.btn-md(ng-click="remove($index)" ng-if="$index >= opts.min")
               i.fa.fa-close
       .row
-        .col-sm-12(style="padding")
+        .col-sm-12
           age-inputs(model="holder.dependents" ages-options-to-include="opts.dependents" on-change="to.onChange()")
 
   br

@@ -6,32 +6,58 @@ export default function ageInputsDirective() {
     template: require('./age-inputs.directive.pug'),
     scope: {
       model: '=',
+      rootModel: '=',
       agesOptionsToInclude: '=',
+      syncWith: '=',
       onChange: '&'
     },
-    controller: function($scope) {
+    controller: function($scope, $parse, $timeout) {
       // do something to do on init
+      config()
 
-      // Initial set
-      if (!$scope.model || !$scope.model.length) {
-        $scope.model = _.filter($scope.agesOptionsToInclude, { default: true })
-          .map(function(_type) {
-            return { type: _type.id, value: undefined };
-          });
+      $timeout(function() {
+        init();
+      }, 250)
+
+      function init() {
+        calculateRemainingTimes();
+
+        if (!$scope.model || $scope.model.length == 0)
+          $scope.model = generateDefaultModel();
+
+        $scope.model = checkDefault($scope.model);
       }
 
 
-      // load all labels
-      const config = $scope.agesOptionsToInclude.reduce(
-        function(final, current) {
-          final[current.id] = current;
-          return final;
-        }, {});
-      $scope.config = config;
+      function config() {
+        _.forEach($scope.agesOptionsToInclude, function(current) {
+          current._default = current.default;
+          if (current.ifIncludedIn) {
+            $scope.$watch(function() {
+              return $parse(current.ifIncludedIn)({ scope: $scope.rootModel })
+            }, function(newValue, oldValue) {
+              current._ifIncludedIn = newValue.indexOf(current.id) >= 0;
+              if (current._ifIncludedIn)
+                current._max = current.max;
+              else
+                current._max = 0;
+              init();
+            });
+          } else {
+            current._max = current.max;
+          }
+        })
 
-      $scope.remainingTypes = $scope.agesOptionsToInclude;
+        // load all labels
+        const config = $scope.agesOptionsToInclude.reduce(
+          function(final, current) {
+            final[current.id] = current;
+            return final;
+          }, {});
+        $scope.config = config;
 
-      calculateRemainingTimes();
+        $scope.remainingTypes = $scope.agesOptionsToInclude;
+      }
 
       $scope.add = function(typeId) {
         $scope.model.push({ type: typeId, value: undefined })
@@ -55,10 +81,38 @@ export default function ageInputsDirective() {
         var times = _.countBy($scope.model, 'type');
 
         $scope.remainingTypes = $scope.agesOptionsToInclude.filter(function(type) {
-          if (!type.max) return true;
-          return type.max > (times[type.id] || 0);
+          if (type._max == undefined) return true;
+          return type._max > (times[type.id] || 0);
         })
       }
+
+      function generateDefaultModel() {
+        return _.filter($scope.agesOptionsToInclude, { _default: true })
+          .filter(function(_type) {
+            return _type._ifIncludedIn == undefined || _type._ifIncludedIn == true;
+          })
+          .map(function(_type) {
+            return { type: _type.id, value: undefined };
+          });
+      }
+
+      function checkDefault(model) {
+        var _default = generateDefaultModel();
+
+        model = model.reduce(function(final, _v) {
+          if (_.some(_default, { type: _v.type }))
+            final.push(_v);
+          return final;
+        }, [])
+
+        _default.forEach(function(_v) {
+            if (!_.some(model, { type: _v.type }))
+              model.push(_v);
+          })
+
+        return model;
+      }
+
     },
   }
 }
