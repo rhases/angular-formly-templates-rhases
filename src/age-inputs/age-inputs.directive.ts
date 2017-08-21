@@ -8,7 +8,6 @@ export default function ageInputsDirective() {
       model: '=',
       rootModel: '=',
       agesOptionsToInclude: '=',
-      syncWith: '=',
       onChange: '&'
     },
     controller: function($scope, $parse, $timeout) {
@@ -20,7 +19,7 @@ export default function ageInputsDirective() {
       }, 250)
 
       function init() {
-        calculateRemainingTimes();
+        calculateRemainingTypes();
 
         if (!$scope.model || $scope.model.length == 0)
           $scope.model = generateDefaultModel();
@@ -61,7 +60,7 @@ export default function ageInputsDirective() {
 
       $scope.add = function(typeId) {
         $scope.model.push({ type: typeId, value: undefined })
-        calculateRemainingTimes();
+        calculateRemainingTypes();
 
         if ($scope.onChange) {
           $scope.onChange();
@@ -70,14 +69,14 @@ export default function ageInputsDirective() {
 
       $scope.remove = function(index) {
         $scope.model.splice(index, 1)
-        calculateRemainingTimes();
+        calculateRemainingTypes();
 
         if ($scope.onChange) {
           $scope.onChange();
         }
       }
 
-      function calculateRemainingTimes() {
+      function calculateRemainingTypes() {
         var times = _.countBy($scope.model, 'type');
 
         $scope.remainingTypes = $scope.agesOptionsToInclude.filter(function(type) {
