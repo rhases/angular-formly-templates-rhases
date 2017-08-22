@@ -8,9 +8,6 @@ export function currencyConfig(formlyConfig, $locale) {
     extends: 'input',
     defaultOptions: {
       ngModelAttrs: {
-        ngCurrency: {
-          attribute: 'ng-currency'
-        },
         moneyMask: {
           attribute: 'money-mask'
         },
@@ -21,7 +18,6 @@ export function currencyConfig(formlyConfig, $locale) {
       templateOptions: {
         moneyMask: '',
         moneyMaskPrepend: $locale.NUMBER_FORMATS.CURRENCY_SYM,
-        ngCurrency: '',
         required: true
       }
     }
