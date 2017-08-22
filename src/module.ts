@@ -23,7 +23,7 @@ export default angular.module(ngModuleName, [
   formly,
   formlyBootstrapTemplates,
   uiBootstrap,
-  ngCurrency
+  ngCurrency.default
 ])
 .config(ageInputsConfig)
 .config(bigButtonsConfig)

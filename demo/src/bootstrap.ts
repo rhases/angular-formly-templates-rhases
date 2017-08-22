@@ -3,7 +3,7 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 const uiBootstrap = require('angular-ui-bootstrap');
 
-import formlyRhasesTemplates from 'angular-formly-templates-rhases';
+const formlyRhasesTemplates = require('angular-formly-templates-rhases').default;
 
 
 import { MainController } from './app.component';
