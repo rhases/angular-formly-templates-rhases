@@ -78,6 +78,20 @@ export class MainController {
           ]
         }
       },
+      {
+        key: 'ages',
+        type: 'holder-age-inputs',
+        templateOptions: {
+          label: 'Idades dos integrantes do plano empresarial:',
+          options: { id: 'employer', label: 'Sócio', groupLabel: 'Sócios', max: 199, default: true,
+            dependents: [
+              { id: 'partner', label: 'Cônjuge', max: 1, default: true },
+              { id: 'son', label: 'Filho/Enteado', max: 99 },
+              { id: 'father', label: 'Pai', max: 1, },
+              { id: 'mother', label: 'Mãe', max: 1, }
+          ]}
+        }
+      }
     ];
 
   user = {

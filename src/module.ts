@@ -3,6 +3,7 @@ const angular = require('angular');
 const formly = require('angular-formly');
 const formlyBootstrapTemplates = require('angular-formly-templates-bootstrap');
 const uiBootstrap = require('angular-ui-bootstrap');
+const ngCurrency = require('ng-currency');
 
 const ngModuleName = 'angular-formly-templates-rhases'
 
@@ -16,12 +17,13 @@ import {holderAgeInputsConfig} from './holder-age-inputs/holder-age-inputs.confi
 import {s3FileUploadDirective} from './file-upload/s3-file-upload-directive.directive';
 import ageInputsDirective from './age-inputs/age-inputs.directive';
 
-import './scss/angular-formly-templates-rhases.scss';
+import './index.scss';
 
 export default angular.module(ngModuleName, [
   formly,
   formlyBootstrapTemplates,
-  uiBootstrap
+  uiBootstrap,
+  ngCurrency
 ])
 .config(ageInputsConfig)
 .config(bigButtonsConfig)

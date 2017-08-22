@@ -1,5 +1,7 @@
 const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
-const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const extractSass = new ExtractTextPlugin({ filename: "style.css" });
 
 module.exports = {
   entry: './src/index.ts',
@@ -41,11 +43,24 @@ module.exports = {
       { test: /\.pug$/, use: ['raw-loader','pug-html-loader'] },
       {
         test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"]
+        use: extractSass.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'sass-loader',
+              options: { sourceMap: true }
+            }
+          ],
+        })
       }
     ]
   },
   plugins: [
     new ModuleConcatenationPlugin(),
+    extractSass
   ]
 };
