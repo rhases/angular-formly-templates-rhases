@@ -4,8 +4,12 @@ const formly = require('angular-formly');
 const formlyBootstrapTemplates = require('angular-formly-templates-bootstrap');
 const uiBootstrap = require('angular-ui-bootstrap');
 const ngCurrency = require('ng-currency');
+const moneyMask = require('angular-money-mask');
 
 const ngModuleName = 'angular-formly-templates-rhases'
+
+// import ngCurrencyMask from 'ng-currency-mask';
+console.log(moneyMask)
 
 import {ageInputsConfig} from './age-inputs/age-inputs.config';
 import {bigButtonsConfig} from './big-buttons/big-buttons.config';
@@ -23,14 +27,15 @@ export default angular.module(ngModuleName, [
   formly,
   formlyBootstrapTemplates,
   uiBootstrap,
-  ngCurrency.default
+  ngCurrency.default,
+  'rw.moneymask'
 ])
 .config(ageInputsConfig)
 .config(bigButtonsConfig)
 .config(brazilianCitiesConfig)
 .config(fileUploadConfig)
-.config(currencyConfig)
 .config(holderAgeInputsConfig)
+.run(currencyConfig)
 .directive('s3FileUpload', s3FileUploadDirective)
 .directive('ageInputs', ageInputsDirective)
 .name;

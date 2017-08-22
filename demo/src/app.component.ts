@@ -4,6 +4,14 @@ export class MainController {
 
   userFields = [
       {
+        key: 'money',
+        type: 'currency',
+        templateOptions: {
+          label: 'Quer pagar quanto:',
+        }
+      },
+
+      {
         key: 'to',
         type: 'big-buttons',
         templateOptions: {

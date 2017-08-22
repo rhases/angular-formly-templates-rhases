@@ -1,1 +1,1 @@
-export declare function currencyConfig(formlyConfigProvider: any): void;
+export declare function currencyConfig(formlyConfig: any, $locale: any): void;

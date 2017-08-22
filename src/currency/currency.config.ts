@@ -1,20 +1,27 @@
 'use strict';
 
-export function currencyConfig(formlyConfigProvider) {
+export function currencyConfig(formlyConfig, $locale) {
   'ngInject';
 
-  // TODO: remove it
-  formlyConfigProvider.setType({
+  formlyConfig.setType({
     name: 'currency',
     extends: 'input',
     defaultOptions: {
       ngModelAttrs: {
-        customAttrVal: {
+        ngCurrency: {
           attribute: 'ng-currency'
+        },
+        moneyMask: {
+          attribute: 'money-mask'
+        },
+        moneyMaskPrepend: {
+          attribute: 'money-mask-prepend'
         }
       },
       templateOptions: {
-        customAttrVal: '',
+        moneyMask: '',
+        moneyMaskPrepend: $locale.NUMBER_FORMATS.CURRENCY_SYM,
+        ngCurrency: '',
         required: true
       }
     }

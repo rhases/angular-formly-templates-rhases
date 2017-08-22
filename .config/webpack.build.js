@@ -18,6 +18,7 @@ module.exports = {
     'lodash': 'lodash',
     'angular-formly-templates-bootstrap': 'angular-formly-templates-bootstrap',
     'angular-ui-bootstrap': 'angular-ui-bootstrap',
+    'brazilian-cities': 'brazilian-cities',
     'api-check': {
       root: 'apiCheck',
       amd: 'api-check',
