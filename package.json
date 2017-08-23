@@ -58,7 +58,7 @@
     "angular-formly": "^8.4.1",
     "angular-money-mask": "^1.0.0",
     "api-check": "^7.0.0",
-    "brazilian-cities": "^2.0.4",
+    "brazilian-cities": "^2.0.5",
     "lodash": "^4.17.4",
     "ng-currency": "^1.2.3"
   },
