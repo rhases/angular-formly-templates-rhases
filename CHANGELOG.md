@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.24"></a>
+## [0.0.24](https://github.com/rhases/angular-formly-templates-rhases/compare/v0.0.23...v0.0.24) (2017-08-23)
+
+
+### Bug Fixes
+
+* imediate big buttons ([28d2a61](https://github.com/rhases/angular-formly-templates-rhases/commit/28d2a61))
+* ng-currency como peerdependency do projeto ([cc35d00](https://github.com/rhases/angular-formly-templates-rhases/commit/cc35d00))
+
+
+
 <a name="0.0.23"></a>
 ## [0.0.23](https://github.com/rhases/angular-formly-templates-rhases/compare/v0.0.22...v0.0.23) (2017-08-22)
 
