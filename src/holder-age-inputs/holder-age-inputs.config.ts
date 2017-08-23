@@ -11,6 +11,7 @@ export function holderAgeInputsConfig(formlyConfigProvider) {
     controller: /* @ngInject */ function($scope) {
       $scope.opts = $scope.to.options
       // Initial set
+      $scope.opts.min = $scope.opts.min || 0;
       if (!$scope.model[$scope.options.key]) {
         $scope.model[$scope.options.key] = $scope.opts.min ? _.fill(Array($scope.opts.min), undefined).map(() => { return {} }) : []
       }
