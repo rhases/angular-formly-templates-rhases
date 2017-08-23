@@ -160,6 +160,10 @@ angular-mocks@^1.6.0:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.6.5.tgz#c62f8014cc6d3ed3fd1b383a634ca0009af3efee"
 
+angular-money-mask@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/angular-money-mask/-/angular-money-mask-1.0.0.tgz#dc5706609e28023e595302ad2eb7f11cca5bd961"
+
 angular-ui-bootstrap@^2.0.1:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/angular-ui-bootstrap/-/angular-ui-bootstrap-2.5.0.tgz#2facefb915386655dc5f44150258032517236d01"
@@ -342,7 +346,7 @@ async@1.x, async@^1.4.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
-async@^2.1.2, async@^2.1.5:
+async@^2.1.2, async@^2.1.5, async@^2.4.1:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/async/-/async-2.5.0.tgz#843190fd6b7357a0b9e1c956edddd5ec8462b54d"
   dependencies:
@@ -620,9 +624,9 @@ braces@^2.2.2:
     split-string "^2.1.0"
     to-regex "^3.0.1"
 
-brazilian-cities@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/brazilian-cities/-/brazilian-cities-2.0.1.tgz#a926866b4a55a74b137fdefa754ac182eacf2651"
+brazilian-cities@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/brazilian-cities/-/brazilian-cities-2.0.4.tgz#5d23e641fd2529c056859bdf5b4311bb40688acb"
   dependencies:
     lodash "^4.13.1"
 
@@ -2094,6 +2098,15 @@ extglob@^1.1.0:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^2.1.0"
+
+extract-text-webpack-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.0.tgz#90caa7907bc449f335005e3ac7532b41b00de612"
+  dependencies:
+    async "^2.4.1"
+    loader-utils "^1.1.0"
+    schema-utils "^0.3.0"
+    webpack-sources "^1.0.1"
 
 extract-zip@~1.6.5:
   version "1.6.5"
@@ -3877,6 +3890,10 @@ ng-annotate@1.2.1:
     stringmap "~0.2.2"
     stringset "~0.2.1"
     tryor "~0.1.2"
+
+ng-currency@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/ng-currency/-/ng-currency-1.2.3.tgz#c5245e2be79e727d742798625342e410a3cab044"
 
 node-forge@0.6.33:
   version "0.6.33"

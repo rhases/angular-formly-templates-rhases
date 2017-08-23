@@ -29,46 +29,48 @@ export function brazilianCitiesConfig(formlyConfigProvider) {
         }
       }
 
-      initInfos($scope);
-
     	$scope.states = states;
 
     	$scope.onSelectState = function() {
-    		$scope.infos.city = undefined;
+    		$scope.model[opts.key].city = undefined;
     	}
 
     	$scope.onSelectCity = function() {
-        var location =  {
-          state:  $scope.infos.state.cod,
-          city:  $scope.infos.city.cod,
-        }
-        $scope.model[opts.key] = location;
+        if(!$scope.internalModel.city)
+          return;
+
+        $scope.model[opts.key].state = $scope.internalModel.state.cod;
+        $scope.model[opts.key].city = $scope.internalModel.city.cod;
 
         if ($scope.to.onChange) {
           $scope.to.onChange();
         }
     	}
 
-    	function initInfos(scope){
-    		var infos = scope.infos;
-    		if (!infos){
-    			scope.infos = {};
-    			return;
+      initInternalModel();
+
+      function initInternalModel(){
+        //init model
+        if(!$scope.model[opts.key]){
+          $scope.model[opts.key] = {};
+        }
+
+        $scope.internalModel = {};
+    	  var thisModel = $scope.model[opts.key];
+    		if(thisModel.state
+    			&& ( typeof(thisModel.state) === 'string'
+    			|| thisModel.state instanceof String)){
+
+    			$scope.internalModel.state = getStateByCod(thisModel.state)
     		}
 
-    		if(infos.state
-    			&& ( typeof(infos.state) === 'string'
-    			|| infos.state instanceof String)){
+    		if(thisModel.city
+    			&& ( typeof(thisModel.city) === 'string'
+    			|| thisModel.city instanceof String)){
 
-    			infos.state = getStateByCod(infos.state)
-    		}
-
-    		if(infos.city
-    			&& ( typeof(infos.city) === 'string'
-    			|| infos.city instanceof String)){
-
-    			infos.city = getCityByCod(infos.state, infos.city);
-    		}
+    			$scope.internalModel.city = getCityByCod($scope.internalModel.state, thisModel.city);
+          //$scope.onSelectCity();
+        }
 
     	}
 
