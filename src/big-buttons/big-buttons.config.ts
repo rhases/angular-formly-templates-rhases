@@ -11,13 +11,6 @@ export function bigButtonsConfig(formlyConfigProvider) {
       const to = $scope.to;
       const opts = $scope.options;
 
-      $scope.set = function(value) {
-        $scope.model[opts.key] = value;
-
-        if ($scope.to.onChange) {
-          $scope.to.onChange();
-        }
-      }
     }
   });
 
