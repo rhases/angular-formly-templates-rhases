@@ -32,16 +32,19 @@ export default function ageInputsDirective() {
         _.forEach($scope.agesOptionsToInclude, function(current) {
           current._default = current.default;
           if (current.ifIncludedIn) {
-            $scope.$watch(function() {
-              return $parse(current.ifIncludedIn)({ scope: $scope.rootModel })
-            }, function(newValue, oldValue) {
-              current._ifIncludedIn = newValue.indexOf(current.id) >= 0;
-              if (current._ifIncludedIn)
-                current._max = current.max;
-              else
-                current._max = 0;
-              init();
-            });
+            $scope.$watch(
+              function() {
+                return $parse(current.ifIncludedIn)({ scope: $scope.rootModel })
+              },
+              function(newValue, oldValue) {
+
+                current._ifIncludedIn = newValue ? newValue.indexOf(current.id) >= 0 : false;
+                if (current._ifIncludedIn)
+                  current._max = current.max;
+                else
+                  current._max = 0;
+                init();
+              });
           } else {
             current._max = current.max;
           }
