@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.28"></a>
+## [0.0.28](https://github.com/rhases/angular-formly-templates-rhases/compare/v0.0.27...v0.0.28) (2017-08-23)
+
+
+### Bug Fixes
+
+* recarga de dados no brazilian-citizens ([ec046b4](https://github.com/rhases/angular-formly-templates-rhases/commit/ec046b4))
+
+
+
 <a name="0.0.27"></a>
 ## [0.0.27](https://github.com/rhases/angular-formly-templates-rhases/compare/v0.0.26...v0.0.27) (2017-08-23)
 
