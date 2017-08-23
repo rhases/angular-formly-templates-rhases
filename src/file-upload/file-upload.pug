@@ -1,5 +1,5 @@
 .form-group.has-feedback
-  input.form-control(ng-disabled="uploadStatus == 'processing'" ng-model="s3UrlFilePath" type="file" ga-event-action s3-file-upload s3-sign-request-uri="options.templateOptions.signRequestUri" s3-file-name-prefix="options.templateOptions.fileNamePrefix" s3-bucket="options.templateOptions.bucket" s3-upload-status="uploadStatus" s3-file-url="model[options.key]")
+  input.form-control(ng-disabled="uploadStatus == 'processing'" ng-model="s3UrlFilePath" type="file" ga-event-action s3-file-upload s3-sign-request-uri="options.templateOptions.signRequestUri" s3-file-name-prefix="options.templateOptions.fileNamePrefix" s3-bucket="options.templateOptions.bucket" s3-upload-status="uploadStatus" s3-file-url="model[options.key]" ng-required="to.required")
   span.form-control-feedback
     i.fa.fa-circle-o-notch.fa-spin(ng-show="uploadStatus == 'processing'")
     i.fa.fa-check.success(ng-show="uploadStatus == 'success'")

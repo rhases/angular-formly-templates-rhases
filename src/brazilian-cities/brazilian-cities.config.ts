@@ -12,6 +12,9 @@ export function brazilianCitiesConfig(formlyConfigProvider) {
     name: 'brazilian-cities',
     template: require('./brazilian-cities.pug'),
     wrapper: ['bootstrapLabel', 'bootstrapHasError'],
+    defaultOptions: {
+      templateOptions:{ required: true }
+    },
     controller: /* @ngInject */ function($scope) {
       const to = $scope.to;
       const opts = $scope.options;
@@ -36,10 +39,8 @@ export function brazilianCitiesConfig(formlyConfigProvider) {
 
     	$scope.onSelectCity = function() {
         var location =  {
-          cityCod:  $scope.infos.city.cod,
-          cityLabel:  $scope.infos.city.label,
-          stateCod:  $scope.infos.state.cod,
-          stateLabel:  $scope.infos.state.label,
+          state:  $scope.infos.state.cod,
+          city:  $scope.infos.city.cod,
         }
         $scope.model[opts.key] = location;
 

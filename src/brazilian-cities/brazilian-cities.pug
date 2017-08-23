@@ -2,14 +2,14 @@
     .form-horizontal
       .form-group
         label(for="state") Estado&nbsp;
-        select.form-control(name="state" ng-options="state.label for state in states track by state.cod" ng-model="infos.state" ng-change="onSelectState()")
+        select.form-control(name="state" ng-required="to.required" ng-options="state.label for state in states track by state.cod" ng-model="infos.state" ng-change="onSelectState()")
           option(value="" disabled hidden)
             | selecione
         |&nbsp;&nbsp;
 
       .form-group
         label(for="city") Cidade&nbsp;
-        select.form-control(name="city" ng-options="city.label for city in infos.state.cities track by city.cod" ng-model="infos.city" ng-change="onSelectCity()")
+        select.form-control(name="city" ng-required="to.required" ng-options="city.label for city in infos.state.cities track by city.cod" ng-model="infos.city" ng-change="onSelectCity()")
           option(value="")
             | selecione
         |&nbsp;&nbsp;
