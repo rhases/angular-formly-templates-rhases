@@ -6,14 +6,14 @@
     .holder-box(ng-repeat="holder in model[options.key]" style="padding: 15px 0px;")
       .row
         .form-group
-          .col-sm-6.text-right
+          .col-xs-6.text-right
             label.holder-label.control-label(style="font-size: 125%") {{ opts.label }} \#{{ $index + 1 }}
-          .col-sm-6.text-left
+          .col-xs-6.text-left
             input.form-control.inline-block(type="number" required min="1" max="99" placeholder="idade" ng-model="holder.age" style="width: initial; display: inline-block")
             a.btn.btn-link.btn-md(ng-click="remove($index)" ng-if="$index >= opts.min")
               i.fa.fa-close
       .row
-        .col-sm-12
+        .col-xs-12
           age-inputs(model="holder.dependents" ages-options-to-include="opts.dependents" on-change="to.onChange()")
 
   br

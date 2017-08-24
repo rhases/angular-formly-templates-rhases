@@ -52,7 +52,7 @@ export class MainController {
             },
             {
               id: 'partner',
-              label: 'Conjugê',
+              label: 'Cônjuge',
               max: 1,
               default: true,
               ifIncludedIn: "scope.who",
