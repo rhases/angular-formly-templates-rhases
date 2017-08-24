@@ -1,6 +1,6 @@
 {
   "name": "angular-formly-templates-rhases",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "author": "Gabriel S. Rodrigues <gabrielsr@gmail.com>",
   "contributors": [
     "Gabriel S. Rodrigues <gabrielsr@gmail.com>",
@@ -56,7 +56,7 @@
   "peerDependencies": {
     "angular": "^1.2.x || >= 1.4.0-beta.0 || >= 1.5.0-beta.0",
     "angular-formly": "^8.4.1",
-    "angular-money-mask": "^1.0.0",
+    "ng-money-mask": "^2.0.1",
     "api-check": "^7.0.0",
     "brazilian-cities": "^2.0.5",
     "lodash": "^4.17.4",
@@ -77,7 +77,7 @@
     "angular-formly": "^8.4.1",
     "angular-formly-templates-bootstrap": "^6.5.1",
     "angular-mocks": "^1.6.0",
-    "angular-money-mask": "^1.0.0",
+    "ng-money-mask": "^2.0.1",
     "angular-ui-bootstrap": "^2.0.1",
     "angular-ui-router": "~0.3.1",
     "api-check": "^7.0.0",
