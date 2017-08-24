@@ -4,7 +4,7 @@ const formly = require('angular-formly');
 const formlyBootstrapTemplates = require('angular-formly-templates-bootstrap');
 const uiBootstrap = require('angular-ui-bootstrap');
 const ngCurrency = require('ng-currency');
-const moneyMask = require('angular-money-mask');
+const moneyMask = require('ng-money-mask');
 
 const ngModuleName = 'angular-formly-templates-rhases'
 
