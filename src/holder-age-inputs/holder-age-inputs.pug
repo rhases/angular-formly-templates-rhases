@@ -9,7 +9,7 @@
           .col-sm-6.text-right
             label.holder-label.control-label(style="font-size: 125%") {{ opts.label }} \#{{ $index + 1 }}
           .col-sm-6.text-left
-            input.form-control.inline-block(type="number" required min="1" max="99" ng-model="holder.age" style="width: initial; display: inline-block")
+            input.form-control.inline-block(type="number" required min="1" max="99" placeholder="idade" ng-model="holder.age" style="width: initial; display: inline-block")
             a.btn.btn-link.btn-md(ng-click="remove($index)" ng-if="$index >= opts.min")
               i.fa.fa-close
       .row
