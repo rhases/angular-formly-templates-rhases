@@ -10,7 +10,17 @@ export class MainController {
           label: 'Quer pagar quanto:',
         }
       },
-
+      {
+        key: 'simple-money',
+        type: 'input',
+        templateOptions: {
+          label: 'Quer pagar quanto:',
+          addonLeft: {text: 'R$'},
+          type: 'number',
+          min:100,
+          required:true
+        }
+      },
       {
         key: 'to',
         type: 'big-buttons',
