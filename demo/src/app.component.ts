@@ -11,14 +11,25 @@ export class MainController {
         }
       },
       {
-        key: 'simple-money',
-        type: 'input',
+        key: 'cpf',
+        type: 'cpf',
         templateOptions: {
-          label: 'Quer pagar quanto:',
-          addonLeft: {text: 'R$'},
-          type: 'number',
-          min:100,
-          required:true
+          label: 'CPF:',
+          required: true
+        }
+      },
+      {
+        key: 'cnpj',
+        type: 'cnpj',
+        templateOptions: {
+          label: 'CNPJ:',
+        }
+      },
+      {
+        key: 'date',
+        type: 'date',
+        templateOptions: {
+          label: 'Data:',
         }
       },
       {
@@ -62,7 +73,7 @@ export class MainController {
             },
             {
               id: 'partner',
-              label: 'Cônjuge',
+              label: 'Conjugê',
               max: 1,
               default: true,
               ifIncludedIn: "scope.who",
@@ -115,7 +126,8 @@ export class MainController {
   user = {
     "who": [
       'partner'
-    ]
+    ],
+    date: "1985-10-08T00:00:00.000Z"
   };
 
   /*@ngInject*/
