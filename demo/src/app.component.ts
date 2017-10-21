@@ -27,6 +27,13 @@ export class MainController {
       },
       {
         key: 'date',
+        type: 'utc-date',
+        templateOptions: {
+          label: 'Data:',
+        }
+      },
+      {
+        key: 'date',
         type: 'date',
         templateOptions: {
           label: 'Data:',

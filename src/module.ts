@@ -21,6 +21,7 @@ import {currencyConfig} from './currency/currency.config';
 import {holderAgeInputsConfig} from './holder-age-inputs/holder-age-inputs.config';
 
 import {dateConfig} from './date/date.config';
+import {utcDateConfig} from './date/utc-date.config';
 import {cpfConfig} from './cpf/cpf.config';
 import {cnpjConfig} from './cnpj/cnpj.config';
 
@@ -45,6 +46,7 @@ export default angular.module(ngModuleName, [
 .config(holderAgeInputsConfig)
 .run(currencyConfig)
 .run(dateConfig)
+.run(utcDateConfig)
 .run(cpfConfig)
 .run(cnpjConfig)
 .directive('s3FileUpload', s3FileUploadDirective)

@@ -1,11 +1,11 @@
 'use strict';
 const moment = require('moment');
 
-export function dateConfig(formlyConfig) {
+export function utcDateConfig(formlyConfig) {
   'ngInject';
 
   formlyConfig.setType({
-    name: 'date',
+    name: 'utc-date',
     extends: 'input',
     defaultOptions: {
       ngModelAttrs: {
@@ -19,12 +19,12 @@ export function dateConfig(formlyConfig) {
       },
       formatters: [
         function (value) {
-          return value && moment(value).format('DDMMYYYY');
+          return value && moment.utc(value).format('DDMMYYYY');
         }
       ],
       parsers: [
         function (value) {
-          var date = moment(value, 'DDMMYYYY', true);
+          var date = moment.utc(value, 'DDMMYYYY', true);
           return date.isValid() ? date : undefined;
         }
       ]
