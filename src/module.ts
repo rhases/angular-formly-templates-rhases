@@ -19,6 +19,7 @@ import {brazilianCitiesConfig} from './brazilian-cities/brazilian-cities.config'
 import {fileUploadConfig} from './file-upload/file-upload.config';
 import {currencyConfig} from './currency/currency.config';
 import {holderAgeInputsConfig} from './holder-age-inputs/holder-age-inputs.config';
+const ngFileUpload = require('ng-file-upload');
 
 import {dateConfig} from './date/date.config';
 import {utcDateConfig} from './date/utc-date.config';
@@ -37,7 +38,8 @@ export default angular.module(ngModuleName, [
   ngCurrency.default,
   uiMask,
   angularMoment,
-  'rw.moneymask'
+  'rw.moneymask',
+  ngFileUpload
 ])
 .config(ageInputsConfig)
 .config(bigButtonsConfig)

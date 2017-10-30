@@ -10,3 +10,24 @@
     }
   }
 }
+
+.file-upload {
+  input::-webkit-input-placeholder {
+    color: #444 !important;
+  }
+  
+  input:-moz-placeholder { /* Firefox 18- */
+    color: #444 !important;  
+  }
+  
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: #444 !important;  
+  }
+  
+  input:-ms-input-placeholder {  
+    color: #444 !important;  
+  }
+}
+.upload-feedback {
+  padding: 1em;
+}
