@@ -20,17 +20,30 @@ export function fileUploadConfig(formlyConfigProvider) {
       }
 
       $scope.onSuccess= function (upload) {
+        if (opts.templateOptions.metaDataKey){
+          let metadata = upload;
+          metadata.$dirty = true;
+          $scope.model[opts.templateOptions.metaDataKey] = metadata;
+        }
         $scope.fileName = upload.fileName;
         $scope.uploadStatus = 'success';
       }
+
       initInternalModel();
 
       function initInternalModel() {
         //init model
+        if ($scope.model[opts.templateOptions.metaDataKey]){
+          let metadata = $scope.model[opts.templateOptions.metaDataKey];
+          $scope.model[opts.key] = metadata.fileName;
+        }
+
+        //init fileName
         if ($scope.model[opts.key]) {
           var str = $scope.model[opts.key];
           var pieces = str.split(/\//);
           $scope.fileName = pieces[pieces.length - 1];
+          $scope.uploadStatus = 'success';
         }
       }
     }
