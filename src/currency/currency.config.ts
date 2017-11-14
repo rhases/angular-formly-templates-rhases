@@ -16,9 +16,9 @@ export function currencyConfig(formlyConfig, $locale) {
         }
       },
       templateOptions: {
+        type: 'tel',
         moneyMask: '',
-        moneyMaskPrepend: $locale.NUMBER_FORMATS.CURRENCY_SYM,
-        required: true
+        moneyMaskPrepend: $locale.NUMBER_FORMATS.CURRENCY_SYM
       }
     }
   });
