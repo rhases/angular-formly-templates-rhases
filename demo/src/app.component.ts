@@ -54,7 +54,7 @@ export class MainController {
       },
 
       {
-        key: 'who',
+        key: 'dependents',
         type: 'multiCheckbox',
         templateOptions: {
           label: 'Quem será incluido no plano?',
@@ -66,72 +66,37 @@ export class MainController {
 
       // Family Ages
       {
-        key: 'ages',
-        type: 'age-inputs',
+        key: 'holders',
+        type: 'holder-age-inputs',
         templateOptions: {
-          label: "Idades da família:",
-          options: [
-            {
-              id: 'himself',
-              label: 'Você',
-              max: 1,
-              default: true,
-              notRemove: true,
-            },
-            {
-              id: 'partner',
-              label: 'Conjugê',
-              max: 1,
-              default: true,
-              ifIncludedIn: "scope.who",
-            },
-            {
-              id: 'son',
-              label: 'Filho',
-              max: 10,
-              default: true,
-              ifIncludedIn: "scope.who",
-            },
-            {
-              id: 'father',
-              label: 'Pai',
-              max: 1,
-              ifIncludedIn: "scope.who",
-            },
-            {
-              id: 'mother',
-              label: 'Mãe',
-              max: 1,
-              default: true,
-              ifIncludedIn: "scope.who",
-            },
-            {
-              id: 'brotherinlaw',
-              label: 'Cunhado',
-              max: 10,
-              ifIncludedIn: "scope.who",
-            }
-          ]
+          label: 'Idades da família:',
+          options: { id: 'holder', label: 'Titular', min:1, max: 1, default: true,
+            dependents: [
+              { id: 'partner', label: 'Cônjuge', max: 1, default: true, ifIncludedIn: 'scope.dependents' },
+              { id: 'son', label: 'Filho/Enteado', max: 99, default: true, ifIncludedIn: 'scope.dependents' },
+              { id: 'father', label: 'Pai', max: 1, default: true, ifIncludedIn: 'scope.dependents' },
+              { id: 'mother', label: 'Mãe', max: 1, default: true, ifIncludedIn: 'scope.dependents' }
+          ]}
         }
-      },
-      {
-        key: 'ages',
+      }
+      ,{
+        key: 'holders',
         type: 'holder-age-inputs',
         templateOptions: {
           label: 'Idades dos integrantes do plano empresarial:',
           options: { id: 'employer', label: 'Sócio', groupLabel: 'Sócios', max: 199, default: true,
             dependents: [
-              { id: 'partner', label: 'Cônjuge', max: 1, default: true },
+              { id: 'partner', label: 'Cônjuge', max: 1 },
               { id: 'son', label: 'Filho/Enteado', max: 99 },
-              { id: 'father', label: 'Pai', max: 1, },
-              { id: 'mother', label: 'Mãe', max: 1, }
+              { id: 'father', label: 'Pai', max: 1 },
+              { id: 'mother', label: 'Mãe', max: 1 }
           ]}
         }
       }
     ];
 
   user = {
-    "who": [
+    "dependents": [
       'partner'
     ],
     date: "1985-10-08T00:00:00.000Z"

@@ -1,25 +1,25 @@
 .holder-inputs.text-center
   br
-  h4 
+  h4(ng-if="opts.groupLabel") 
     strong {{ opts.groupLabel }}
   .form-horizontal
     .holder-box(ng-repeat="holder in model[options.key]" style="padding: 15px 0px;")
       .row
         .form-group
           .col-xs-6.text-right
-            label.holder-label.control-label(style="font-size: 125%") {{ opts.label }} \#{{ $index + 1 }}
+            label.holder-label.control-label(style="font-size: 125%") {{ opts.label }} 
+              span(ng-if="opts.max > 1") \#{{ $index + 1 }}
           .col-xs-6.text-left
             input.form-control.inline-block(type="number" required min="1" max="99" placeholder="idade" ng-model="holder.age" style="width: initial; display: inline-block")
             a.btn.btn-link.btn-md(ng-click="remove($index)" ng-if="$index >= opts.min")
               i.fa.fa-close
       .row
         .col-xs-12
-          age-inputs(model="holder.dependents" ages-options-to-include="opts.dependents" on-change="to.onChange()")
+          age-inputs(model="holder.dependents" root-model="model" ages-options-to-include="opts.dependents" on-change="to.onChange()")
 
-  br
-    
-  button.btn.btn-link.btn-lg(ng-click="add()")
-    i.fa.fa-plus-circle
-    | &nbsp;Adicionar {{ opts.label }}
-    
-  br
+  div(ng-if="opts.max > model[options.key].length")
+    br  
+    button.btn.btn-link.btn-lg(ng-click="add()")
+      i.fa.fa-plus-circle
+      | &nbsp;Adicionar {{ opts.label }}
+    br
