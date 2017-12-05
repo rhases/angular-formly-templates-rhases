@@ -15,7 +15,7 @@
               i.fa.fa-close
       .row
         .col-xs-12
-          age-inputs(model="holder.dependents" root-model="model" ages-options-to-include="opts.dependents" on-change="to.onChange()")
+          age-inputs(model="holder.dependents" root-model="model" ages-options-to-include="opts.dependents" on-change="onChangeDependents()")
 
   div(ng-if="opts.max > model[options.key].length")
     br  

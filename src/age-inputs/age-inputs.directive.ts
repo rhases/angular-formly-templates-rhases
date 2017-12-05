@@ -63,17 +63,18 @@ export default function ageInputsDirective() {
 
       $scope.add = function(typeId) {
         $scope.model.push({ type: typeId, value: undefined })
-        calculateRemainingTypes();
-
-        if ($scope.onChange) {
-          $scope.onChange();
-        }
+        _onChange();
       }
 
       $scope.remove = function(index) {
         $scope.model.splice(index, 1)
+        _onChange();
+      }
+
+      function _onChange() {
         calculateRemainingTypes();
 
+        
         if ($scope.onChange) {
           $scope.onChange();
         }
