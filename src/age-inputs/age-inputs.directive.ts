@@ -25,6 +25,7 @@ export default function ageInputsDirective() {
           $scope.model = generateDefaultModel();
 
         $scope.model = checkDefault($scope.model);
+        _onChange();
       }
 
 
@@ -43,7 +44,9 @@ export default function ageInputsDirective() {
                   current._max = current.max;
                 else
                   current._max = 0;
-                init();
+                $timeout(function() {
+                  init();
+                }, 250)
               });
           } else {
             current._max = current.max;
@@ -59,6 +62,7 @@ export default function ageInputsDirective() {
         $scope.config = config;
 
         $scope.remainingTypes = $scope.agesOptionsToInclude;
+        _onChange();
       }
 
       $scope.add = function(typeId) {
@@ -73,8 +77,6 @@ export default function ageInputsDirective() {
 
       function _onChange() {
         calculateRemainingTypes();
-
-        
         if ($scope.onChange) {
           $scope.onChange();
         }
