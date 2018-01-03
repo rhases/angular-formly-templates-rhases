@@ -78,8 +78,8 @@ export class MainController {
               { id: 'mother', label: 'Mãe', max: 1, default: true, ifIncludedIn: 'scope.dependents' }
           ]}
         }
-      }
-      ,{
+      },
+      {
         key: 'holders',
         type: 'holder-age-inputs',
         templateOptions: {
@@ -91,6 +91,39 @@ export class MainController {
               { id: 'father', label: 'Pai', max: 1 },
               { id: 'mother', label: 'Mãe', max: 1 }
           ]}
+        }
+      },
+      {
+        key: 'fileUrl',
+        type: 'file-upload',
+        templateOptions: {
+          label: 'Arquivo:',
+          bucket: 'rhases-user-insurance-data',
+          fileNamePrefix: 'teste/',
+          signRequestUri:  'http://hi-seller.homolog.api.rhases.com.br/api/s3-upload/preSignedUrlForUserHome',
+          required: false
+        },
+        validation: {
+          messages: {
+            required: '"campo " + to.label + " é obrigatório "'
+          }
+        }
+      },
+      {
+        key: 'attachments',
+        type: 'file-upload',
+        templateOptions: {
+          label: 'Anexos:',
+          bucket: 'rhases-user-insurance-data',
+          fileNamePrefix: 'teste-attachments/',
+          signRequestUri:  'http://hi-seller.homolog.api.rhases.com.br/api/s3-upload/preSignedUrlForUserHome',
+          multipleFiles: true,
+          required: false
+        },
+        validation: {
+          messages: {
+            required: '"campo " + to.label + " é obrigatório "'
+          }
         }
       }
     ];

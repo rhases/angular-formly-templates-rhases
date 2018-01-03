@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('lodash');
 
 export function fileUploadConfig(formlyConfigProvider) {
   'ngInject';
@@ -12,38 +13,50 @@ export function fileUploadConfig(formlyConfigProvider) {
       $scope.opts = $scope.to.options;
       const opts = $scope.options;
 
-      $scope.uploadStatus = 'none';
-      $scope.fileName = "Escolha um arquivo";
-      $scope.onStarted = function(upload){
-        $scope.fileName = upload.fileName;
-        $scope.uploadStatus = 'processing';
+      $scope.multipleFiles = opts.templateOptions.multipleFiles;
+
+      $scope.onStarted = function(upload) {
+        if($scope.multipleFiles) {
+          $scope.fileMetadata.push(upload);
+        } else {
+          if (opts.templateOptions.metaDataKey) {
+            upload.$dirty = true;
+            $scope.model[opts.templateOptions.metaDataKey] = upload;
+          }
+          $scope.fileMetadata = upload;
+        }
       }
 
-      $scope.onSuccess= function (upload) {
-        if (opts.templateOptions.metaDataKey){
-          let metadata = upload;
-          metadata.$dirty = true;
-          $scope.model[opts.templateOptions.metaDataKey] = metadata;
-        }
-        $scope.fileName = upload.fileName;
-        $scope.uploadStatus = 'success';
+      $scope.remove = function(index) {
+        var removed = $scope.fileMetadata.splice(index, 1)[0];
+        var modelIndex = $scope.model[opts.key].indexOf(removed.url);
+        $scope.model[opts.key].splice(modelIndex, 1)
       }
 
       initInternalModel();
 
       function initInternalModel() {
-        //init model
-        if ($scope.model[opts.templateOptions.metaDataKey]){
-          let metadata = $scope.model[opts.templateOptions.metaDataKey];
-          $scope.model[opts.key] = metadata.fileName;
-        }
+        $scope.fileMetadata = opts.templateOptions.metaDataKey && $scope.model[opts.templateOptions.metaDataKey];
+        if($scope.fileMetadata)
+          return;
 
-        //init fileName
-        if ($scope.model[opts.key]) {
-          var str = $scope.model[opts.key];
-          var pieces = str.split(/\//);
-          $scope.fileName = pieces[pieces.length - 1];
-          $scope.uploadStatus = 'success';
+        if($scope.multipleFiles) {
+          if(!_.isArray($scope.model[opts.key])) 
+            $scope.model[opts.key] = _.compact([$scope.model[opts.key]]);
+          
+          $scope.fileMetadata = $scope.model[opts.key].map(initMetadata);
+        } else {
+          $scope.fileMetadata = initMetadata($scope.model[opts.key]);
+        }
+      }
+
+      function initMetadata(url) {
+        if(!url) return;
+        var pieces = url.split(/\//);
+        return {
+          url: url,
+          fileName: pieces[pieces.length - 1],
+          status: 'success',
         }
       }
     }
