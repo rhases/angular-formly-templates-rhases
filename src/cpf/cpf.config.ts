@@ -17,6 +17,17 @@ export function cpfConfig(formlyConfig) {
         type: 'tel',
         mask: '999.999.999-99',
       },
+      formatters: [
+        function ($viewValue, $modelValue, scope) {
+          // ui-mask workaround
+          var cpf = $modelValue;
+          if(!cpf || cpf.length < 8) return cpf;
+          while (cpf.length < 11) {
+            cpf = '0' + cpf;
+          }
+          return cpf;
+        }
+      ],
       validators: {
         cpf: {
           expression: function($viewValue, $modelValue, scope) {

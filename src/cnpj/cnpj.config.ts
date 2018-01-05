@@ -17,6 +17,17 @@ export function cnpjConfig(formlyConfig) {
         type: 'tel',
         mask: '99.999.999/9999-99',
       },
+      formatters: [
+        function ($viewValue, $modelValue, scope) {
+          // ui-mask workaround
+          var cnpj = $modelValue;
+          if(!cnpj || cnpj.length < 11) return cnpj;
+          while (cnpj.length < 14) {
+            cnpj = '0' + cnpj;
+          }
+          return cnpj;
+        }
+      ],
       validators: {
         cnpj: {
           expression: function($viewValue, $modelValue, scope) {

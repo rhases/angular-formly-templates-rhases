@@ -26,10 +26,19 @@ export class MainController {
         }
       },
       {
-        key: 'date',
+        key: 'dateUtc',
         type: 'utc-date',
         templateOptions: {
-          label: 'Data:',
+          label: 'Data UTC:',
+        }
+      },
+      {
+        key: 'billingPeriod',
+        type: 'utc-date',
+        templateOptions: {
+          label: 'Competência:',
+          mask: '99/9999',
+          dateFormat: 'MMYYYY'
         }
       },
       {
@@ -132,7 +141,10 @@ export class MainController {
     "dependents": [
       'partner'
     ],
-    date: "1985-10-08T00:00:00.000Z"
+    dateUtc: "1985-10-08T00:00:00.000Z",
+    date: "2018-01-05T03:00:00.000Z",
+    cpf: "642476195",
+    cnpj: "6069286000148"
   };
 
   /*@ngInject*/

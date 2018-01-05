@@ -16,15 +16,17 @@ export function dateConfig(formlyConfig) {
       templateOptions: {
         type: 'tel',
         mask: '99/99/9999',
+        dateFormat: 'DDMMYYYY'
       },
       formatters: [
-        function (value) {
-          return value && moment(value).format('DDMMYYYY');
+        function ($viewValue, $modelValue, scope) {
+          // ui-mask workaround
+          return $modelValue && moment($modelValue).format(scope.to.dateFormat);
         }
       ],
       parsers: [
-        function (value) {
-          var date = moment(value, 'DDMMYYYY', true);
+        function ($viewValue, $modelValue, scope) {
+          var date = moment($viewValue, scope.to.dateFormat, true);
           return date.isValid() ? date : undefined;
         }
       ]
