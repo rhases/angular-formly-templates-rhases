@@ -83,7 +83,7 @@ export function s3FileUploadDirective($http, $q) {
           }
 
           // Perform The Push To S3
-          return upload(file, preSignedResp, { headers: { 'Content-Type': fileType(file) } })
+          return upload(file, preSignedResp, { 'Content-Type': fileType(file) })
             .then(function (response) {
               console.log('success :) ', response);
               return response;
@@ -148,9 +148,9 @@ export function s3FileUploadDirective($http, $q) {
         var defer = $q.defer();
         $http({
           method: 'PUT',
-          data: data,
-          url: url,
-          headers: headers,
+          data,
+          url,
+          headers,
           uploadEventHandlers: {
             progress: function (e) {
               defer.notify(e);
