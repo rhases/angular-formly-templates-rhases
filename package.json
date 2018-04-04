@@ -1,6 +1,6 @@
 {
   "name": "angular-formly-templates-rhases",
-  "version": "0.0.48",
+  "version": "0.0.49",
   "author": "Gabriel S. Rodrigues <gabrielsr@gmail.com>",
   "contributors": [
     "Gabriel S. Rodrigues <gabrielsr@gmail.com>",
@@ -27,6 +27,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "release": "standard-version",
+    "prerelease": "npm run build",
     "contrib:add": "all-contributors add",
     "contrib:generate": "all-contributors generate",
     "ngc": "./node_modules/.bin/ngc",
