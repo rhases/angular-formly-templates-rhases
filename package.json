@@ -27,6 +27,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "release": "standard-version",
+    "prerelease": "npm run build",
     "contrib:add": "all-contributors add",
     "contrib:generate": "all-contributors generate",
     "ngc": "./node_modules/.bin/ngc",
