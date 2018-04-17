@@ -21,3 +21,7 @@
     a.btn.btn-link.btn-sm(ng-click="remove($index)")
             i.fa.fa-close
     br
+  div.file-upload-thumbnail(ng-if="options.templateOptions.thumbnailEnabled")
+    img.file-upload-preview(ng-src="{{model[options.key]}}")
+    img.file-upload-foreground(ng-src="{{options.templateOptions.thumbnailForeground}}" 
+    ng-if="options.templateOptions.thumbnailEnabled && !model[options.key]")
