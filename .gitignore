@@ -39,3 +39,5 @@ jspm_packages
 
 dist
 definitions
+
+\.DS_Store
