@@ -1,0 +1,4 @@
+.stack-buttons
+  .row(ng-repeat="(key, option) in to.options")
+    button.stack-button(id="{{id + '_'+ $index}}" ng-model="model[options.key]"  uib-btn-radio="option[to.valueProp || 'value']" ng-class="{ 'btn-secondary': model[options.key] == option[to.valueProp || 'value'], 'btn-default': model[options.key] != option[to.valueProp || 'value'] }")
+      | {{option[to.labelProp || 'name']}}

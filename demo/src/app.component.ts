@@ -4,6 +4,14 @@ export class MainController {
 
   userFields = [
       {
+          key: 'zipcode',
+          type: 'cep',
+          templateOptions: {
+            label: 'CEP:',
+            required: true
+          },
+      },
+      {
         key: 'money',
         type: 'currency',
         templateOptions: {
@@ -61,7 +69,35 @@ export class MainController {
           ]
         }
       },
-
+      {
+        key: 'contratar',
+        type: 'action-button',
+        templateOptions: {
+          shortLabel: 'Selecionou Contratar:',
+          label: 'Contratar',
+          value: 'sim',
+          required: true
+        },
+      },
+      {
+        key: 'termsOfService',
+        type: 'agree',
+        templateOptions: {
+          label: 'Li e concordo'
+        }
+      },
+      {
+        key: 'bikeGroup',
+        type: 'radio-with-other',
+        templateOptions: {
+         label: 'Grupos:',
+          options: [
+            { name: 'Não participo.', value: 'no' },
+          ],
+          otherLabel: 'Sim, partipo do ',
+          otherPlaceholder: ' ... '
+        }
+      },
       {
         key: 'dependents',
         type: 'multiCheckbox',
@@ -133,6 +169,19 @@ export class MainController {
           messages: {
             required: '"campo " + to.label + " é obrigatório "'
           }
+        }
+      },
+      {
+        key: 'intention',
+        type: 'stack-buttons',
+        templateOptions: {
+          label: 'Intenção:',
+          //label: 'Deseja realizar uma cotaçao ou prefere saber mais o TASSBIKE primeiro?',
+          options: [
+            { name: 'Realizar uma cotação', value: 'quotation', image: 'https://images.rhases.com.br/quote-tassbike/speed.png' },
+            { name: 'Saber mais sobre o Seguro Ciclista', value: 'know-more', image: 'https://images.rhases.com.br/quote-tassbike/mtb.png' }
+          ],
+          required: true,
         }
       }
     ];

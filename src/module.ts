@@ -12,12 +12,19 @@ const ngModuleName = 'angular-formly-templates-rhases'
 // import ngCurrencyMask from 'ng-currency-mask';
 console.log(moneyMask)
 
+import { actionButtonConfig } from './action-button/action-button.config';
 import {ageInputsConfig} from './age-inputs/age-inputs.config';
+import { agreeConfig } from './agree/agree.config';
 import {bigButtonsConfig} from './big-buttons/big-buttons.config';
 import {brazilianCitiesConfig} from './brazilian-cities/brazilian-cities.config';
+import { cepConfig } from './cep/cep.config';
 import {fileUploadConfig} from './file-upload/file-upload.config';
 import {currencyConfig} from './currency/currency.config';
 import {holderAgeInputsConfig} from './holder-age-inputs/holder-age-inputs.config';
+import { linkConfig } from './link/link.config';
+import { radioWithOtherConfig } from './radio-with-other/radio-with-other.config';
+import { stackButtonsConfig } from './stack-buttons/stack-buttons.config';
+
 const ngFileUpload = require('ng-file-upload');
 
 import {dateConfig} from './date/date.config';
@@ -44,6 +51,14 @@ export default angular.module(ngModuleName, [
 .config(brazilianCitiesConfig)
 .config(fileUploadConfig)
 .config(holderAgeInputsConfig)
+
+.run(actionButtonConfig)
+.run(stackButtonsConfig)
+.run(radioWithOtherConfig)
+.run(agreeConfig)
+.run(linkConfig)
+.run(cepConfig)
+
 .run(currencyConfig)
 .run(dateConfig)
 .run(utcDateConfig)
