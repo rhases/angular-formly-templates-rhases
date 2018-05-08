@@ -8,20 +8,20 @@ export function cepConfig(formlyConfig) {
     function fetchCep(cepInputValue, scope){
         return cepBrowser(cepInputValue)
             .then((result) => {
-                updateLocation(scope, result);
+                updateLocation(scope.model, scope.to, result);
             })
             .catch((err) => {
                 console.error(err);
             });
     }
 
-    function updateLocation($scope, location) {
+    function updateLocation(model, to, location) {
         if (!location.city || !location.state) { return; }
-
-        $scope.model[$scope.options.cityKey || 'city'] = location.city;
-        $scope.model[$scope.options.stateKey || 'state' ] = location.state;
-        $scope.model[$scope.options.addressAreaKey || 'addressArea' ] = location.neighborhood;
-        $scope.model[$scope.options.addressLineKey || 'addressLine'] = location.street;
+        
+        model[to.cityKey || 'city'] = location.city;
+        model[to.stateKey || 'state' ] = location.state;
+        model[to.addressAreaKey || 'addressArea' ] = location.neighborhood;
+        model[to.addressLineKey || 'addressLine'] = location.street;
     }
 
     formlyConfig.setType({
