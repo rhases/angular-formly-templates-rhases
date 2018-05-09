@@ -12,6 +12,17 @@ export function fileUploadConfig(formlyConfigProvider) {
 
       $scope.opts = $scope.to.options;
       const opts = $scope.options;
+      const to = $scope.to;
+      
+      const defaultLabels = { 
+        chooseSingleFileButtonLabel: 'Anexar arquivo...',
+        chooseMultipeFilesButtonLabel: 'Anexar arquivos...'
+      };
+      
+      $scope.labels = { 
+        chooseSingleFileButtonLabel: to.chooseSingleFileButtonLabel || defaultLabels.chooseSingleFileButtonLabel,
+        chooseMultipeFilesButtonLabel: to.chooseMultipeFilesButtonLabel || defaultLabels.chooseMultipeFilesButtonLabel,
+      };
 
       $scope.multipleFiles = opts.templateOptions.multipleFiles;
 

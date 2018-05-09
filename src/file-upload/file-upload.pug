@@ -1,5 +1,5 @@
 .form-group.file-upload
-  input.form-control(type="text" placeholder="{{ multipleFiles ? 'Escolha 1 ou mais arquivos...' : (fileMetadata.fileName || 'Escolha o arquivo...') }}" 
+  input.form-control(type="text" placeholder="{{ multipleFiles ? labels.chooseMultipeFilesButtonLabel : (fileMetadata.fileName || labels.chooseSingleFileButtonLabel) }}" 
   ng-disabled="uploadStatus == 'processing'" ngf-select="vm.upload($file)" ngf-multiple="multipleFiles" 
   ng-model="s3UrlFilePath" ga-event-action s3-file-upload 
   s3-sign-request-uri="options.templateOptions.signRequestUri" 

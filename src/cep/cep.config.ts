@@ -1,6 +1,7 @@
 'use strict';
 
 import {cepBrowser} from 'cep-as-promised';
+var _ = require('lodash');
 
 export function cepConfig(formlyConfig) {
     'ngInject';
@@ -18,10 +19,10 @@ export function cepConfig(formlyConfig) {
     function updateLocation(model, to, location) {
         if (!location.city || !location.state) { return; }
         
-        model[to.cityKey || 'city'] = location.city;
-        model[to.stateKey || 'state' ] = location.state;
-        model[to.addressAreaKey || 'addressArea' ] = location.neighborhood;
-        model[to.addressLineKey || 'addressLine'] = location.street;
+        _.set(model, to.cityKey || 'city', location.city);
+        _.set(model, to.stateKey || 'state', location.state);
+        _.set(model, to.addressAreaKey || 'addressArea', location.neighborhood);
+        _.set(model, to.addressLineKey || 'addressLine', location.street);
     }
 
     formlyConfig.setType({
