@@ -1,11 +1,11 @@
 .age-inputs.text-center
   .form-horizontal
-    .row(ng-repeat="age in model")
-      .form-group.age-box
+    .span(ng-repeat="age in model")
+      .age-box
         .col-xs-6.text-right
           label.control-label {{ config[age.type].label }}
         .col-xs-6.text-left
-          input.form-control.inline-block(type="number" required min="1" max="99" placeholder="idade" ng-model="age.age" style="width: initial; display: inline-block")
+          input.form-control.inline-block.holder-box(type="number" required min="1" max="99" placeholder="idade" ng-model="age.age")
           a.btn.btn-link.btn-sm(ng-click="remove($index)" ng-hide="config[age.type].notRemove")
             i.fa.fa-close
 

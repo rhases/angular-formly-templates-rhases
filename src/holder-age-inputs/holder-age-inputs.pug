@@ -1,21 +1,18 @@
-.holder-inputs.text-center
-  br
+.holder-inputs
   h4(ng-if="opts.groupLabel") 
     strong {{ opts.groupLabel }}
   .form-horizontal
-    .holder-box(ng-repeat="holder in model[options.key]" style="padding: 15px 0px;")
-      .row
-        .form-group
-          .col-xs-6.text-right
-            label.holder-label.control-label(style="font-size: 125%") {{ opts.label }} 
-              span(ng-if="opts.max > 1") \#{{ $index + 1 }}
-          .col-xs-6.text-left
-            input.form-control.inline-block(type="number" required min="1" max="99" placeholder="idade" ng-model="holder.age" style="width: initial; display: inline-block")
-            a.btn.btn-link.btn-md(ng-click="remove($index)" ng-if="$index >= opts.min")
-              i.fa.fa-close
-      .row
-        .col-xs-12
-          age-inputs(model="holder.dependents" root-model="model" ages-options-to-include="opts.dependents" on-change="onChangeDependents()")
+    .holder-box(ng-repeat="holder in model[options.key]")
+      .col-xs-12
+        .col-xs-6.text-right
+          label.age-label.control-label(style="font-size: 125%") {{ opts.label }} 
+            span(ng-if="opts.max > 1") \#{{ $index + 1 }}
+        .col-xs-6.text-left
+          input.form-control.inline-block.age-input(type="number" required min="1" max="99" placeholder="idade" ng-model="holder.age")
+          a.btn.btn-link.btn-md(ng-click="remove($index)" ng-if="$index >= opts.min")
+            i.fa.fa-close
+      .col-xs-12
+        age-inputs(model="holder.dependents" root-model="model" ages-options-to-include="opts.dependents" on-change="onChangeDependents()")
 
   div(ng-if="opts.max > model[options.key].length")
     br  
