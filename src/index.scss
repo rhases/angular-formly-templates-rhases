@@ -29,5 +29,10 @@
   }
 }
 .upload-feedback {
-  padding: 1em;
+    position: relative;
+    margin: -10px;
+    right: 50px;
+    top: 28px;
+    width: 0px;
+    color: green;
 }
