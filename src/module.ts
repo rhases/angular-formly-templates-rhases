@@ -31,6 +31,7 @@ import {dateConfig} from './date/date.config';
 import {utcDateConfig} from './date/utc-date.config';
 import {cpfConfig} from './cpf/cpf.config';
 import {cnpjConfig} from './cnpj/cnpj.config';
+import { inputGroupConfig } from './input-group/input-group.config';
 
 import {s3FileUploadDirective} from './file-upload/s3-file-upload-directive.directive';
 import ageInputsDirective from './age-inputs/age-inputs.directive';
@@ -51,6 +52,7 @@ export default angular.module(ngModuleName, [
 .config(brazilianCitiesConfig)
 .config(fileUploadConfig)
 .config(holderAgeInputsConfig)
+.config(inputGroupConfig)  
 
 .run(actionButtonConfig)
 .run(stackButtonsConfig)
