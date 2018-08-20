@@ -10,11 +10,13 @@
   s3-on-success="onSuccess()")
 
   span.upload-feedback(ng-if="!multipleFiles")
+    i.fa.fa-upload(ng-show="!fileMetadata.status")
     i.fa.fa-circle-o-notch.fa-spin(ng-show="fileMetadata.status == 'processing'")
     i.fa.fa-check.success(ng-show="fileMetadata.status == 'success'")
     i.fa.fa-times.success(ng-show="fileMetadata.status == 'failed'")
 
   span.upload-feedback(ng-if="!!multipleFiles" ng-repeat="meta in fileMetadata")
+    i.fa.fa-upload(ng-show="!meta.status")
     i.fa.fa-circle-o-notch.fa-spin(ng-show="meta.status == 'processing'")
     i.fa.fa-check.success(ng-show="meta.status == 'success'")
     i.fa.fa-times.success(ng-show="meta.status == 'failed'")
