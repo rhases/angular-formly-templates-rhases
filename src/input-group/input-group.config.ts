@@ -1,9 +1,9 @@
 'use strict';
 
-export function inputGroupConfig(formlyConfig) {
+export function inputGroupConfig(formlyConfigProvider) {
   'ngInject';
 
-  formlyConfig.setType({
+  formlyConfigProvider.setType({
     name: 'input-group',
     template: require('./input-group.pug'),
     wrapper: ['bootstrapLabel', 'bootstrapHasError'],

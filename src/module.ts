@@ -13,25 +13,24 @@ const ngModuleName = 'angular-formly-templates-rhases'
 console.log(moneyMask)
 
 import { actionButtonConfig } from './action-button/action-button.config';
-import {ageInputsConfig} from './age-inputs/age-inputs.config';
+import { ageInputsConfig } from './age-inputs/age-inputs.config';
 import { agreeConfig } from './agree/agree.config';
-import {bigButtonsConfig} from './big-buttons/big-buttons.config';
-import {brazilianCitiesConfig} from './brazilian-cities/brazilian-cities.config';
+import { bigButtonsConfig } from './big-buttons/big-buttons.config';
+import { brazilianCitiesConfig } from './brazilian-cities/brazilian-cities.config';
 import { cepConfig } from './cep/cep.config';
-import {fileUploadConfig} from './file-upload/file-upload.config';
-import {currencyConfig} from './currency/currency.config';
-import {holderAgeInputsConfig} from './holder-age-inputs/holder-age-inputs.config';
+import { fileUploadConfig } from './file-upload/file-upload.config';
+import { currencyConfig } from './currency/currency.config';
+import { holderAgeInputsConfig } from './holder-age-inputs/holder-age-inputs.config';
 import { linkConfig } from './link/link.config';
 import { radioWithOtherConfig } from './radio-with-other/radio-with-other.config';
 import { stackButtonsConfig } from './stack-buttons/stack-buttons.config';
+import { dateConfig } from './date/date.config';
+import { utcDateConfig } from './date/utc-date.config';
+import { cpfConfig } from './cpf/cpf.config';
+import { cnpjConfig } from './cnpj/cnpj.config';
+import { inputGroupConfig } from './input-group/input-group.config';
 
 const ngFileUpload = require('ng-file-upload');
-
-import {dateConfig} from './date/date.config';
-import {utcDateConfig} from './date/utc-date.config';
-import {cpfConfig} from './cpf/cpf.config';
-import {cnpjConfig} from './cnpj/cnpj.config';
-import { inputGroupConfig } from './input-group/input-group.config';
 
 import {s3FileUploadDirective} from './file-upload/s3-file-upload-directive.directive';
 import ageInputsDirective from './age-inputs/age-inputs.directive';
@@ -52,7 +51,7 @@ export default angular.module(ngModuleName, [
 .config(brazilianCitiesConfig)
 .config(fileUploadConfig)
 .config(holderAgeInputsConfig)
-.config(inputGroupConfig)  
+.config(inputGroupConfig)
 
 .run(actionButtonConfig)
 .run(stackButtonsConfig)

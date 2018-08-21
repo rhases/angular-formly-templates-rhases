@@ -1,6 +1,10 @@
-.input-group
-    .input-group-prepend(ng-if="to.inputGroupAddon")
-        span.input-group-text {{to.inputGroupAddon}}
-    input.form-control(type="text" ng-model='model[options.key]' placeholder="{{to.placeholder}}" aria-label="{{options.key}}" ng-required="to.required")
-    .input-group-append(ng-if="to.inputGroupAddon")
+.input-group.stackable
+    .input-group-addon(ng-if='to.inputGroupAddon')
+        span.input-group-text(ng-bind-html='to.inputGroupAddon')
+    input.form-control.no-border(type='text' ng-model='model[options.key]' 
+        placeholder='{{to.placeholder}}' 
+        aria-label='{{options.key}}' 
+        ng-required='to.required' 
+        ng-pattern='to.pattern')
+    .input-group-append(ng-if='to.inputGroupAddon')
         span.input-group-text {{to.inputGroupAppend}}
