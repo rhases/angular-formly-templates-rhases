@@ -5,6 +5,7 @@
         placeholder='{{to.placeholder}}' 
         aria-label='{{options.key}}' 
         ng-required='to.required' 
-        ng-pattern='to.pattern')
+        ng-pattern='to.pattern'
+        siteAvailableDirective)
     .input-group-append(ng-if='to.inputGroupAddon')
         span.input-group-text {{to.inputGroupAppend}}
