@@ -32,7 +32,8 @@ export function fileUploadConfig(formlyConfigProvider) {
         } else {
           if (opts.templateOptions.metaDataKey) {
             upload.$dirty = true;
-            $scope.model[opts.templateOptions.metaDataKey] = upload;
+            let key = opts.templateOptions.metaDataKey;
+            _.set($scope.model, key, upload);
           }
           $scope.fileMetadata = upload;
         }
