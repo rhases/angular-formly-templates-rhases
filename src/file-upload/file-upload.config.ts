@@ -53,17 +53,17 @@ export function fileUploadConfig(formlyConfigProvider) {
       initInternalModel();
 
       function initInternalModel() {
-        $scope.fileMetadata = opts.templateOptions.metaDataKey && $scope.model[opts.templateOptions.metaDataKey];
+        $scope.fileMetadata = opts.templateOptions.metaDataKey && $scope.localModel[opts.templateOptions.metaDataKey];
         if($scope.fileMetadata)
           return;
 
         if($scope.multipleFiles) {
-          if(!_.isArray($scope.model[opts.key])) 
-            $scope.model[opts.key] = _.compact([$scope.model[opts.key]]);
+          if (!_.isArray($scope.localModel[opts.key])) 
+            $scope.localModel[opts.key] = _.compact([$scope.localModel[opts.key]]);
           
-          $scope.fileMetadata = $scope.model[opts.key].map(initMetadata);
+          $scope.fileMetadata = $scope.localModel[opts.key].map(initMetadata);
         } else {
-          $scope.fileMetadata = initMetadata($scope.model[opts.key]);
+          $scope.fileMetadata = initMetadata($scope.localModel[opts.key]);
         }
       }
 

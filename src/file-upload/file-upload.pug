@@ -11,17 +11,19 @@
 
   span.upload-feedback(ng-if="!multipleFiles")
     i.fa.fa-upload(ng-show="!fileMetadata.status")
-    i.fa.fa-circle-o-notch.fa-spin(ng-show="fileMetadata.status == 'processing'")
-    i.fa.fa-check.success(ng-show="fileMetadata.status == 'success'")
-    i.fa.fa-times.success(ng-show="fileMetadata.status == 'failed'")
+    i.fa(ng-show="fileMetadata.status" ng-class="{ \
+      'fa-circle-o-notch': fileMetadata.status == 'processing', \
+      'fa-spin': fileMetadata.status == 'processing', \
+      'fa-check': fileMetadata.status == 'success', \
+      'fa-times': fileMetadata.status == 'failed'}")
 
   span.upload-feedback(ng-if="!!multipleFiles" ng-repeat="meta in fileMetadata")
     i.fa.fa-upload(ng-show="!meta.status")
     i.fa(ng-class="{ \
-      fa-circle-o-notch: meta.status == 'processing', \
-      fa-spin: meta.status == 'processing', \
-      fa-check: meta.status == 'success', \
-      fa-times: meta.status == 'failed'}")
+      'fa-circle-o-notch': meta.status == 'processing', \
+      'fa-spin': meta.status == 'processing', \
+      'fa-check': meta.status == 'success', \
+      'fa-times': meta.status == 'failed'}")
     | &nbsp;{{meta.fileName}}&nbsp;&nbsp;
     a.btn.btn-link.btn-sm(ng-click="remove($index)")
             i.fa.fa-close
