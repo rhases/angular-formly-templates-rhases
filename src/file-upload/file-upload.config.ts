@@ -13,6 +13,12 @@ export function fileUploadConfig(formlyConfigProvider) {
       $scope.opts = $scope.to.options;
       const opts = $scope.options;
       const to = $scope.to;
+
+      if (to.submodel){
+        $scope.localModel = _.get($scope.model, to.submodel)
+      }else {
+        $scope.localModel = $scope.model;
+      }
       
       const defaultLabels = { 
         chooseSingleFileButtonLabel: 'Anexar arquivo...',
@@ -32,8 +38,7 @@ export function fileUploadConfig(formlyConfigProvider) {
         } else {
           if (opts.templateOptions.metaDataKey) {
             upload.$dirty = true;
-            let key = opts.templateOptions.metaDataKey;
-            _.set($scope.model, key, upload);
+            $scope.localModel[opts.templateOptions.metaDataKey] = upload;
           }
           $scope.fileMetadata = upload;
         }
@@ -41,8 +46,8 @@ export function fileUploadConfig(formlyConfigProvider) {
 
       $scope.remove = function(index) {
         var removed = $scope.fileMetadata.splice(index, 1)[0];
-        var modelIndex = $scope.model[opts.key].indexOf(removed.url);
-        $scope.model[opts.key].splice(modelIndex, 1)
+        var modelIndex = $scope.localModel[opts.key].indexOf(removed.url);
+        $scope.localModel[opts.key].splice(modelIndex, 1);
       }
 
       initInternalModel();
