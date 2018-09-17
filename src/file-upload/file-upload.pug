@@ -29,6 +29,7 @@
             i.fa.fa-close
     br
   div.file-upload-thumbnail(ng-if="options.templateOptions.thumbnailEnabled")
-    img.file-upload-preview(ng-src="{{localModel[options.key]}}" ng-class="options.templateOptions.thumbnailClass")
+    img.file-upload-preview(ng-src="{{localModel[options.key]}}" ng-class="options.templateOptions.thumbnailClass"
+    ng-if="!!localModel[options.key]")
     img.file-upload-foreground(ng-src="{{options.templateOptions.thumbnailForeground}}" 
-    ng-if="options.templateOptions.thumbnailEnabled && !localModel[options.key]")
+    ng-if="options.templateOptions.thumbnailForeground && !localModel[options.key]")
