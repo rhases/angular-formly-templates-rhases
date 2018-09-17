@@ -5,7 +5,7 @@
   s3-sign-request-uri="options.templateOptions.signRequestUri" 
   s3-file-name-prefix="options.templateOptions.fileNamePrefix" 
   s3-bucket="options.templateOptions.bucket" 
-  s3-file-url="localModel[options.key]" ng-required="to.required && !localModel[options.key]" 
+  s3-file-url="localModel[options.key]" ng-required="options.templateOptions.required && !localModel[options.key]" 
   s3-on-started="onStarted(uploadedFile)" 
   s3-on-success="onSuccess()")
 

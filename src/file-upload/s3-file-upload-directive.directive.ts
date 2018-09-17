@@ -68,7 +68,7 @@ export function s3FileUploadDirective($http, $q) {
 
       function signRequest(file) {
         return $http.post(options.s3SignRequestUri, {
-          filename: options.s3FileNamePrefix + file.name,
+          filename: options.s3FileNamePrefix + scapeFileName(file.name),
           type: fileType(file),
           bucket: options.s3Bucket
         })
@@ -158,6 +158,10 @@ export function s3FileUploadDirective($http, $q) {
           }
         }).then(defer.resolve.bind(defer), defer.reject.bind(defer));
         return defer.promise;
+      }
+
+      function scapeFileName(fileName){
+        return fileName.split(' ').join('_');
       }
 
       function fileType(file) {
