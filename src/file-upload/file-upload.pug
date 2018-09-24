@@ -27,7 +27,7 @@
     | &nbsp;{{meta.fileName}}&nbsp;&nbsp;
     a.btn.btn-link.btn-sm(ng-click="remove($index)")
             i.fa.fa-close
-    br
+  br
   div.file-upload-thumbnail(ng-if="options.templateOptions.thumbnailEnabled")
     img.file-upload-preview(ng-src="{{localModel[options.key]}}" ng-class="options.templateOptions.thumbnailClass"
     ng-if="!!localModel[options.key]")
