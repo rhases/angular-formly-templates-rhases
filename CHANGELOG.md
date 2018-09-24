@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.69"></a>
+## [0.0.69](https://github.com/rhases/angular-formly-templates-rhases/compare/v0.0.68...v0.0.69) (2018-09-24)
+
+
+
 <a name="0.0.68"></a>
 ## [0.0.68](https://github.com/rhases/angular-formly-templates-rhases/compare/v0.0.67...v0.0.68) (2018-09-17)
 
