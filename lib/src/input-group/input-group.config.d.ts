@@ -1,1 +1,1 @@
-export declare function inputGroupConfig(formlyConfig: any): void;
+export declare function inputGroupConfig(formlyConfigProvider: any): void;
