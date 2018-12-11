@@ -41,6 +41,8 @@ export function fileUploadConfig(formlyConfigProvider) {
             }
             $scope.localModel[opts.templateOptions.metaDataKey].push(upload);
             $scope.fileMetadata.push(upload);
+          } else {
+            $scope.fileMetadata.push(upload);
           }
         } else {
           if (opts.templateOptions.metaDataKey) {
