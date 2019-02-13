@@ -1,0 +1,1 @@
+input.form-control(type='text' ng-model='infos.operator' typeahead-on-select='select($item)' placeholder='Operadoras' uib-typeahead='operator as operator.name for operator in getOperators($viewValue) | limitTo:3' typeahead-no-results='noResults' typeahead-min-length="0" typeahead-editable="false" style="width: 280px;" autocomplete="off")

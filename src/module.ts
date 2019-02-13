@@ -19,6 +19,7 @@ import { bigButtonsConfig } from './big-buttons/big-buttons.config';
 import { brazilianCitiesConfig } from './brazilian-cities/brazilian-cities.config';
 import { cepConfig } from './cep/cep.config';
 import { fileUploadConfig } from './file-upload/file-upload.config';
+import { chooseOperatorConfig } from './choose-operator/choose-operator.config';
 import { currencyConfig } from './currency/currency.config';
 import { holderAgeInputsConfig } from './holder-age-inputs/holder-age-inputs.config';
 import { linkConfig } from './link/link.config';
@@ -52,6 +53,7 @@ export default angular.module(ngModuleName, [
 .config(fileUploadConfig)
 .config(holderAgeInputsConfig)
 .config(inputGroupConfig)
+.config(chooseOperatorConfig)
 
 .run(actionButtonConfig)
 .run(stackButtonsConfig)
