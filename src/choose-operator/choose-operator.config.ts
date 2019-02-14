@@ -10,7 +10,6 @@ export function chooseOperatorConfig(formlyConfigProvider) {
         template: require('./choose-operator.pug'),
         wrapper: ['bootstrapLabel', 'bootstrapHasError'],
         controller: /* @ngInject */ function ($log, $http, $scope, $window) {
-            var currentSelectedOperator;
             var infos = $scope.infos || {};
             const opts = $scope.options;
 
@@ -20,7 +19,7 @@ export function chooseOperatorConfig(formlyConfigProvider) {
 
                 return $http.get($window.ENV.serversUri.hiSeller + '/api/health-insurance/operators/name/' + val)
                     .then(function (operators) {
-                        console.log(operators.data)
+                        $log.debug(operators.data);
                         return operators.data.map(function (operator) {
                             operator.label = operator.code;
                             return operator;
@@ -36,7 +35,7 @@ export function chooseOperatorConfig(formlyConfigProvider) {
             }
 
             function set(operator) {
-                $scope.model[opts.key] = operator;
+                _.set($scope.model, opts.key, operator.code);
             }
 
             $scope.getOperators = getOperators;

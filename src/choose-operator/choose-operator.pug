@@ -1,1 +1,6 @@
-input.form-control(type='text' ng-model='infos.operator' typeahead-on-select='select($item)' placeholder='Operadoras' uib-typeahead='operator as operator.name for operator in getOperators($viewValue) | limitTo:3' typeahead-no-results='noResults' typeahead-min-length="0" typeahead-editable="false" style="width: 280px;" autocomplete="off")
+input.form-control(type='text' ng-model='infos.operator' typeahead-on-select='select($item)' placeholder='Operadoras' uib-typeahead='operator as operator.name for operator in getOperators($viewValue) | limitTo:3' typeahead-no-results='noResults' typeahead-min-length="0" typeahead-editable="false" style="width: 280px;" autocomplete="off" typeahead-template-url="chooseOperatorAutocomplete.html")
+
+script(type="text/ng-template" id="chooseOperatorAutocomplete.html")
+	a
+		img(ng-src="{{match.model.image}}" style="margin: 10px" width="64")
+		span(ng-bind-html="match.label | uibTypeaheadHighlight:query")
