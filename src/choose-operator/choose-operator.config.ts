@@ -12,9 +12,11 @@ export function chooseOperatorConfig(formlyConfigProvider) {
         controller: /* @ngInject */ function ($log, $http, $scope, $window) {
             var infos = $scope.infos || {};
             const opts = $scope.options;
-
+            const to = $scope.to;
+            const minLengthToQuery = to.minLengthToQuery || 3;
+            
             function getOperators(val) {
-                if (val && val.length < 3)
+                if (val && val.length < minLengthToQuery)
                     return;
 
                 return $http.get($window.ENV.serversUri.hiSeller + '/api/health-insurance/operators/name/' + val)
@@ -36,6 +38,9 @@ export function chooseOperatorConfig(formlyConfigProvider) {
 
             function set(operator) {
                 _.set($scope.model, opts.key, operator.code);
+                if (to.saveOperatorName && to.saveOperatorName.key) {
+                    _.set($scope.model, to.saveOperatorName.key, operator.name);
+                }
             }
 
             $scope.getOperators = getOperators;
