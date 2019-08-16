@@ -9,7 +9,4 @@
 
       .form-group
         label(for="city") Cidade&nbsp;
-        select.form-control(name="city" ng-required="to.required" ng-options="city.label for city in internalModel.state.cities track by city.cod" ng-model="internalModel.city" ng-change="onSelectCity()")
-          option(value="")
-            | selecione
-        |&nbsp;&nbsp;
+        input.form-control(type="text" name="city" ng-required="to.required" uib-typeahead="city as city.label for city in internalModel.state.cities | filter:$viewValue | limitTo:8" ng-model="internalModel.city" typeahead-on-select="onSelectCity()")
