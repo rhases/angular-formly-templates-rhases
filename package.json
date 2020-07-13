@@ -112,7 +112,7 @@
     "rxjs": "^5.4.1",
     "sass-loader": "^6.0.6",
     "shx": "^0.2.2",
-    "standard-version": "^3.0.0",
+    "standard-version": "^8.0.1",
     "style-loader": "^0.18.2",
     "tslint": "^5.4.3",
     "typescript": "^2.3.3",
